@@ -1,0 +1,32 @@
+---
+title: "Introduction to jeksterslabRdatarepo"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+description: >
+  Learn how to get started with the basics of jeksterslabRdatarepo.
+output:
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{Introduction to jeksterslabRdatarepo}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Data Repository
+
+## Installation
+
+You can install the released version of `jeksterslabRdatarepo` from [GitHub](https://github.com/jeksterslabds/jeksterslabRdatarepo) with:
+
+```r
+library(devtools)
+install_github("jeksterslabds/jeksterslabRdatarepo")
+```

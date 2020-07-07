@@ -1,0 +1,31 @@
+Package: jeksterslabRdatarepo
+Version: 0.9.0
+Title: Data Repository
+Authors@R:
+    person(
+        given = "Ivan Jacob Agaloos",
+        family = "Pesigan",
+        role = c("aut", "cre"),
+        email = "i.j.a.pesigan@connect.um.edu.mo",
+        comment = c(ORCID = "0000-0003-4818-8420")
+    )
+Description: A collection of functions that I find useful in studying
+    probability distributions.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Language: en-US
+LazyData: true
+VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)
+URL: https://github.com/jeksterslabds/jeksterslabRdatarepo
+BugReports: https://github.com/jeksterslabds/jeksterslabRdatarepo/issues
+Depends:
+	R (>= 3.5.0)
+Imports:
+	utils,
+	stats
+Suggests:
+	knitr,
+	rmarkdown,
+	testthat
+RoxygenNote: 7.1.0
