@@ -176,15 +176,15 @@ GPA <- c(
   3.02,
   2.74
 )
-lsat <- cbind(
+law <- data.frame(
   LSAT,
   GPA
 )
-head(lsat)
-str(lsat)
+head(law)
+str(law)
 #'
 #+ usedata
 usethis::use_data(
-  lsat,
+  law,
   overwrite = TRUE
 )

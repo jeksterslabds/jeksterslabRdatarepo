@@ -23,7 +23,12 @@ Depends:
 	R (>= 3.5.0)
 Imports:
 	utils,
-	stats
+	stats,
+    psych,
+    DT,
+    ggplot2,
+    GGally,
+    plotly
 Suggests:
 	knitr,
 	rmarkdown,

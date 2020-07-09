@@ -1,0 +1,94 @@
+---
+title: "Notes: Galton's Height Data"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Notes: Galton's Height Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r, packages, echo = FALSE, message = FALSE, warning = FALSE}
+library(knitr)
+library(jeksterslabRboot)
+library(DT)
+library(GGally)
+library(plotly)
+library(psych)
+```
+
+## Load Data
+
+```{r, load}
+data(
+  galton,
+  package = "jeksterslabRdatarepo"
+)
+```
+
+## Data Table
+
+```{r, DT, echo = FALSE}
+datatable(galton)
+```
+
+## Plots
+
+### Scatter Plot Matrix
+
+```{r, plot01, echo = FALSE, message = FALSE, warning = FALSE}
+p <- ggpairs(
+  data = galton,
+  mapping = aes(color = gender),
+  columns = c(2, 3, 5, 6)
+)
+ggplotly(p)
+```
+
+### Father
+
+```{r, plot02, echo = FALSE, message = FALSE, warning = FALSE}
+plot_ly(
+  data = galton,
+  x = ~father,
+  y = ~height,
+  color = ~gender
+)
+```
+
+### Mother
+
+```{r, plot03, echo = FALSE, message = FALSE, warning = FALSE}
+plot_ly(
+  data = galton,
+  x = ~mother,
+  y = ~height,
+  color = ~gender
+)
+```
+
+## Descritive Statistics
+
+```{r, descriptives01, echo = FALSE}
+kable(
+  x = summary(
+    galton
+  )
+)
+```
+
+```{r, descriptives02, echo = FALSE, message = FALSE, warning = FALSE}
+kable(
+  x = describe(
+    galton
+  )
+)
+```

@@ -12,7 +12,7 @@
 
 <meta name="author" content="Ivan Jacob Agaloos Pesigan" />
 
-<meta name="date" content="2020-07-07" />
+<meta name="date" content="2020-07-09" />
 
 <title>Data: lsat</title>
 
@@ -331,7 +331,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Data: lsat</h1>
 <h4 class="author">Ivan Jacob Agaloos Pesigan</h4>
-<h4 class="date">2020-07-07</h4>
+<h4 class="date">2020-07-09</h4>
 
 
 
@@ -503,29 +503,28 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb1-166"><a href="#cb1-166" aria-hidden="true"></a>  <span class="fl">3.02</span>,</span>
 <span id="cb1-167"><a href="#cb1-167" aria-hidden="true"></a>  <span class="fl">2.74</span></span>
 <span id="cb1-168"><a href="#cb1-168" aria-hidden="true"></a>)</span>
-<span id="cb1-169"><a href="#cb1-169" aria-hidden="true"></a>lsat &lt;-<span class="st"> </span><span class="kw">cbind</span>(</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true"></a>law &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
 <span id="cb1-170"><a href="#cb1-170" aria-hidden="true"></a>  LSAT,</span>
 <span id="cb1-171"><a href="#cb1-171" aria-hidden="true"></a>  GPA</span>
 <span id="cb1-172"><a href="#cb1-172" aria-hidden="true"></a>)</span>
-<span id="cb1-173"><a href="#cb1-173" aria-hidden="true"></a><span class="kw">head</span>(lsat)</span></code></pre></div>
-<pre><code>##      LSAT  GPA
-## [1,]  622 3.23
-## [2,]  542 2.83
-## [3,]  579 3.24
-## [4,]  653 3.12
-## [5,]  606 3.09
-## [6,]  576 3.39</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">str</span>(lsat)</span></code></pre></div>
-<pre><code>##  num [1:82, 1:2] 622 542 579 653 606 576 620 615 553 607 ...
-##  - attr(*, &quot;dimnames&quot;)=List of 2
-##   ..$ : NULL
-##   ..$ : chr [1:2] &quot;LSAT&quot; &quot;GPA&quot;</code></pre>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true"></a><span class="kw">head</span>(law)</span></code></pre></div>
+<pre><code>##   LSAT  GPA
+## 1  622 3.23
+## 2  542 2.83
+## 3  579 3.24
+## 4  653 3.12
+## 5  606 3.09
+## 6  576 3.39</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">str</span>(law)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    82 obs. of  2 variables:
+##  $ LSAT: num  622 542 579 653 606 576 620 615 553 607 ...
+##  $ GPA : num  3.23 2.83 3.24 3.12 3.09 3.39 3.1 3.4 2.97 2.91 ...</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>usethis<span class="op">::</span><span class="kw">use_data</span>(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>  lsat,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>  law,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>  <span class="dt">overwrite =</span> <span class="ot">TRUE</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>)</span></code></pre></div>
 <pre><code>## ✔ Setting active project to &#39;/media/jeksterslab/scripts/r/jeksterslabRdatarepo&#39;</code></pre>
-<pre><code>## ✔ Saving &#39;lsat&#39; to &#39;data/lsat.rda&#39;</code></pre>
+<pre><code>## ✔ Saving &#39;law&#39; to &#39;data/law.rda&#39;</code></pre>
 <pre><code>## ● Document your data (see &#39;https://r-pkgs.org/data.html&#39;)</code></pre>
 
 

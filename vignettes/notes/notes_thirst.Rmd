@@ -1,0 +1,81 @@
+---
+title: "Notes: Temperature on Water Consumption Via Thirst"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Notes: Temperature on Water Consumption Via Thirst}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r, packages, echo = FALSE, message = FALSE, warning = FALSE}
+library(knitr)
+library(jeksterslabRboot)
+library(DT)
+library(GGally)
+library(plotly)
+library(psych)
+```
+
+## Load Data
+
+```{r, load}
+data(
+  thirst,
+  package = "jeksterslabRdatarepo"
+)
+```
+
+## Data Table
+
+```{r, DT, echo = FALSE}
+datatable(thirst)
+```
+
+## Plots
+
+### Scatter Plot Matrix
+
+Note that jittering is added to avoid overplotting.
+
+```{r, plot01, echo = FALSE, message = FALSE, warning = FALSE}
+p <- ggpairs(
+  data = thirst,
+  lower = list(
+    continuous = wrap(
+      "points",
+      position = position_jitter(
+        height = 3,
+        width = 3
+      )
+    )
+  )
+)
+ggplotly(p)
+```
+
+## Descritive Statistics
+
+```{r, descriptives01, echo = FALSE}
+kable(
+  x = summary(
+    thirst
+  )
+)
+```
+
+```{r, descriptives02, echo = FALSE, message = FALSE, warning = FALSE}
+kable(
+  x = describe(
+    thirst
+  )
+)
+```

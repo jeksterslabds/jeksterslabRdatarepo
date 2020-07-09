@@ -1,0 +1,70 @@
+---
+title: "Notes: Law School Data"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Notes: Law School Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r, packages, echo = FALSE, message = FALSE, warning = FALSE}
+library(knitr)
+library(jeksterslabRboot)
+library(DT)
+library(GGally)
+library(plotly)
+library(psych)
+```
+
+## Load Data
+
+```{r, load}
+data(
+  law,
+  package = "jeksterslabRdatarepo"
+)
+```
+
+## Data Table
+
+```{r, DT, echo = FALSE}
+datatable(law)
+```
+
+## Plots
+
+### Scatter Plot Matrix
+
+```{r, plot01, echo = FALSE, message = FALSE, warning = FALSE}
+p <- ggpairs(
+  data = law
+)
+ggplotly(p)
+```
+
+## Descritive Statistics
+
+```{r, descriptives01, echo = FALSE}
+kable(
+  x = summary(
+    law
+  )
+)
+```
+
+```{r, descriptives02, echo = FALSE, message = FALSE, warning = FALSE}
+kable(
+  x = describe(
+    law
+  )
+)
+```
