@@ -8,7 +8,10 @@
 #' ---
 #'
 #+ data
-galton <- read.delim("data_galton.tsv")
+galton <- read.delim(
+  "data_galton.tsv",
+  stringsAsFactors = TRUE
+)
 head(galton)
 str(galton)
 #'
