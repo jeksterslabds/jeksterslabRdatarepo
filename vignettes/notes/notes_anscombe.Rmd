@@ -1,0 +1,179 @@
+---
+title: "Notes: Anscombe's Quartet"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Notes: Anscombe's Quartet}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r, packages, echo = FALSE, message = FALSE, warning = FALSE}
+library(knitr)
+library(jeksterslabRboot)
+library(DT)
+library(GGally)
+library(plotly)
+library(psych)
+```
+
+## Load Data
+
+```{r, load}
+data(
+  anscombe,
+  package = "jeksterslabRdatarepo"
+)
+```
+
+## Data Table
+
+```{r, DT, echo = FALSE}
+datatable(
+  anscombe,
+  options = list(
+    pageLength = 11,
+    dom = "t"
+  )
+)
+```
+
+## Plots
+
+```{r, echo = FALSE}
+pair <- 1:4
+x <- paste0("x", pair)
+y <- paste0("y", pair)
+muhat_x <- sigmahat_x <- muhat_y <- sigmahat_y <- rhohat <- rep(x = NA, times = length(pairs))
+fit <- vector(mode = "list", length = length(pair))
+for (i in seq_along(pair)) {
+  fit[[i]] <- lm(
+    anscombe[, y[i]] ~ anscombe[, x[i]]
+  )
+  muhat_x[i] <- mean(anscombe[, x[i]])
+  sigmahat_x[i] <- sd(anscombe[, x[i]])
+  muhat_y[i] <- mean(anscombe[, y[i]])
+  sigmahat_y[i] <- sd(anscombe[, y[i]])
+  rhohat[i] <- cor(anscombe[, x[i]], anscombe[, y[i]])
+}
+```
+
+### Pair 1
+
+```{r, plot01, echo = FALSE, message = FALSE, warning = FALSE}
+anscombe %>%
+  plot_ly(
+    x = ~x1,
+    y = ~y1,
+    mode = "markers"
+  ) %>%
+  add_markers(
+    y = ~y1
+  ) %>%
+  add_trace(
+    x = ~x1,
+    y = fitted(fit[[1]]),
+    mode = "lines"
+  ) %>%
+  layout(
+    showlegend = F
+  )
+```
+
+### Pair 1
+
+```{r, plot02, echo = FALSE, message = FALSE, warning = FALSE}
+anscombe %>%
+  plot_ly(
+    x = ~x2,
+    y = ~y2,
+    mode = "markers"
+  ) %>%
+  add_markers(
+    y = ~y2
+  ) %>%
+  add_trace(
+    x = ~x2,
+    y = fitted(fit[[2]]),
+    mode = "lines"
+  ) %>%
+  layout(
+    showlegend = F
+  )
+```
+
+### Pair 3
+
+```{r, plot03, echo = FALSE, message = FALSE, warning = FALSE}
+anscombe %>%
+  plot_ly(
+    x = ~x3,
+    y = ~y3,
+    mode = "markers"
+  ) %>%
+  add_markers(
+    y = ~y3
+  ) %>%
+  add_trace(
+    x = ~x3,
+    y = fitted(fit[[3]]),
+    mode = "lines"
+  ) %>%
+  layout(
+    showlegend = F
+  )
+```
+
+### Pair 4
+
+```{r, plot04, echo = FALSE, message = FALSE, warning = FALSE}
+anscombe %>%
+  plot_ly(
+    x = ~x4,
+    y = ~y4,
+    mode = "markers"
+  ) %>%
+  add_markers(
+    y = ~y4
+  ) %>%
+  add_trace(
+    x = ~x4,
+    y = fitted(fit[[4]]),
+    mode = "lines"
+  ) %>%
+  layout(
+    showlegend = F
+  )
+```
+
+## Descritive Statistics
+
+```{r, descriptives01, echo = FALSE}
+kable(
+  x = data.frame(
+    pair,
+    muhat_x,
+    sigmahat_x,
+    muhat_y,
+    sigmahat_y,
+    rhohat
+  ),
+  col.names = c(
+    "Pair",
+    "Mean (x)",
+    "Standard Deviation (x)",
+    "Mean (y)",
+    "Standard Deviation (y)",
+    "Correlation (x, y)"
+  )
+)
+```
+
