@@ -22,7 +22,9 @@ knitr::opts_chunk$set(
 [![codecov](https://codecov.io/github/jeksterslabds/jeksterslabRdatarepo/branch/master/graphs/badge.svg)](https://codecov.io/github/jeksterslabds/jeksterslabRdatarepo) 
 <!-- badges: end -->
 
-Data Repository
+`jeksterslabRdatarepo` is a repository of data sets I find useful in illustrating concepts
+in Data Science and Statistics.
+
 
 ## Installation
 
