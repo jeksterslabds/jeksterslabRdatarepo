@@ -48,6 +48,9 @@
 #' doi:[10.2307/2841583](https://doi.org/10.2307/2841583).
 #'
 #' [Wikipedia: Regression toward the mean](https://en.wikipedia.org/wiki/Regression_toward_the_mean)
+#'
+#' [The troubling legacy of Francis Galton](https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2019.01275.x)
+#'
 #' @source
 #' Francis Galton, 2017,
 #' "Galton height data",
