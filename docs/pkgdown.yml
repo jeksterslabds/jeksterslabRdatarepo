@@ -7,8 +7,8 @@ articles:
   notes_galton: notes/notes_galton.html
   notes_law: notes/notes_law.html
   notes_thirst: notes/notes_thirst.html
-  test_2_plus_2: tests/test_2_plus_2.html
-last_built: 2020-07-09T13:53Z
+  test_data_thirst: tests/test_data_thirst.html
+last_built: 2020-07-13T03:52Z
 urls:
   reference: https://github.com/jeksterslabds/jeksterslabRdatarepo//reference
   article: https://github.com/jeksterslabds/jeksterslabRdatarepo//articles

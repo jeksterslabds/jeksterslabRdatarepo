@@ -65,5 +65,7 @@ Regression Towards Mediocrity in Hereditary Stature.
 doi:\href{https://doi.org/10.2307/2841583}{10.2307/2841583}.
 
 \href{https://en.wikipedia.org/wiki/Regression_toward_the_mean}{Wikipedia: Regression toward the mean}
+
+\href{https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2019.01275.x}{The troubling legacy of Francis Galton}
 }
 \keyword{datasets}
