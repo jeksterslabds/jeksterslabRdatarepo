@@ -62,7 +62,7 @@ p <- ggpairs(
 ggplotly(p)
 ```
 
-## Descritive Statistics
+## Descriptive Statistics
 
 ```{r, descriptives01, echo = FALSE}
 kable(

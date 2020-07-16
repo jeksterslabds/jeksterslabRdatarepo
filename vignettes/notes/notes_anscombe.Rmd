@@ -69,12 +69,13 @@ for (i in seq_along(pair)) {
 ### Pair 1
 
 ```{r, plot01, echo = FALSE, message = FALSE, warning = FALSE}
-anscombe %>%
-  plot_ly(
-    x = ~x1,
-    y = ~y1,
-    mode = "markers"
-  ) %>%
+plot_ly(
+  data = anscombe,
+  type = "scatter",
+  mode = "markers",
+  x = ~x1,
+  y = ~y1
+) %>%
   add_markers(
     y = ~y1
   ) %>%
@@ -88,15 +89,16 @@ anscombe %>%
   )
 ```
 
-### Pair 1
+### Pair 2
 
 ```{r, plot02, echo = FALSE, message = FALSE, warning = FALSE}
-anscombe %>%
-  plot_ly(
-    x = ~x2,
-    y = ~y2,
-    mode = "markers"
-  ) %>%
+plot_ly(
+  data = anscombe,
+  type = "scatter",
+  mode = "markers",
+  x = ~x2,
+  y = ~y2
+) %>%
   add_markers(
     y = ~y2
   ) %>%
@@ -113,12 +115,13 @@ anscombe %>%
 ### Pair 3
 
 ```{r, plot03, echo = FALSE, message = FALSE, warning = FALSE}
-anscombe %>%
-  plot_ly(
-    x = ~x3,
-    y = ~y3,
-    mode = "markers"
-  ) %>%
+plot_ly(
+  data = anscombe,
+  type = "scatter",
+  mode = "markers",
+  x = ~x3,
+  y = ~y3
+) %>%
   add_markers(
     y = ~y3
   ) %>%
@@ -135,12 +138,13 @@ anscombe %>%
 ### Pair 4
 
 ```{r, plot04, echo = FALSE, message = FALSE, warning = FALSE}
-anscombe %>%
-  plot_ly(
-    x = ~x4,
-    y = ~y4,
-    mode = "markers"
-  ) %>%
+plot_ly(
+  data = anscombe,
+  type = "scatter",
+  mode = "markers",
+  x = ~x4,
+  y = ~y4
+) %>%
   add_markers(
     y = ~y4
   ) %>%

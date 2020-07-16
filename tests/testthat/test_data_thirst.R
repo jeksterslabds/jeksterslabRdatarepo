@@ -22,7 +22,9 @@ library(testthat)
 library(jeksterslabRdatarepo)
 context("Test data_thirst.")
 #'
-#+ data
+#' ## Load data
+#'
+#+ load_data
 data(
   thirst,
   package = "jeksterslabRdatarepo"
@@ -105,7 +107,136 @@ muhatthetahat <- c(
 )
 names(muhatthetahat) <- varnames
 #'
-#+ echo = FALSE
+#' ## Model
+#'
+#' \begin{equation}
+#'   Y_i
+#'   =
+#'   \delta_Y
+#'   +
+#'   \tau^{
+#'     \prime
+#'   }
+#'   X_i
+#'   +
+#'   \beta
+#'   M_i
+#'   +
+#'   \varepsilon_{
+#'     Y_{
+#'       i
+#'     }
+#'   }, \\
+#'   \enspace
+#'   \text{
+#'     where
+#'   }
+#'   \enspace
+#'   \boldsymbol{
+#'     \varepsilon_{
+#'       Y_{
+#'         i
+#'       }
+#'     }
+#'   }
+#'   \sim
+#'   \mathcal{
+#'     N
+#'   }
+#'   \left(
+#'     \mu_{\varepsilon_{Y_{i}}}
+#'     =
+#'     0,
+#'     \sigma^{
+#'       2
+#'     }_{
+#'       \varepsilon_{
+#'         Y_{
+#'           i
+#'         }
+#'       }
+#'     }
+#'     \mathrm{
+#'       I
+#'     }
+#'   \right)
+#' \end{equation}
+#'
+#' \begin{equation}
+#'   M_i
+#'   =
+#'   \delta_M
+#'   +
+#'   \alpha
+#'   X_i
+#'   +
+#'   \varepsilon_{
+#'     M_i
+#'   }, \\
+#'   \enspace
+#'     \text{where}
+#'   \enspace
+#'   \boldsymbol{
+#'     \varepsilon_{
+#'       M_i
+#'     }
+#'   }
+#'   \sim
+#'   \mathcal{
+#'     N
+#'   }
+#'   \left(
+#'     \mu_{
+#'       \varepsilon_{
+#'         M_{
+#'           i
+#'         }
+#'       }
+#'     }
+#'     =
+#'     0,
+#'     \sigma^2_{
+#'       \varepsilon_{
+#'         M_i
+#'       }
+#'     }
+#'     \mathrm{
+#'       I
+#'     }
+#'   \right)
+#' \end{equation}
+#'
+#' ## Data
+#'
+#+ data, echo = FALSE
+Variable <- c(
+  "`temp`",
+  "`thirst`",
+  "`water`"
+)
+Description <- c(
+  "Room temperature in degrees Fahrenheit.",
+  "Self-reported thirst at the end of a 2-hour period.",
+  "Water consumed during the last 2 hours in deciliters."
+)
+Notation <- c(
+  "$X$",
+  "$M$",
+  "$Y$"
+)
+knitr::kable(
+  x = data.frame(
+    Variable,
+    Description,
+    Notation
+  ),
+  row.names = FALSE,
+  caption = "Variables"
+)
+#'
+#' ## Mean structure
+#'
+#+ mean_structure, echo = FALSE
 Variable <- c(
   "`muhatX`",
   "`deltahatM`",
@@ -137,7 +268,9 @@ knitr::kable(
   caption = "Estimated mean of $X$ and regression intercepts"
 )
 #'
-#+ echo = FALSE
+#' ## Covariance structure
+#'
+#+ A_matrix, echo = FALSE
 Variable <- c(
   "`alphahat`",
   "`tauprimehat`",
@@ -173,7 +306,8 @@ knitr::kable(
   caption = "Estimated regression slopes"
 )
 #'
-#+ echo = FALSE
+#+ S_matrix, echo = FALSE
+# A matrix
 Variable <- c(
   "`sigma2hatX`",
   "`sigma2hatepsilonhatM`",
@@ -205,15 +339,23 @@ knitr::kable(
   caption = "Estimated variance of $X$ and error variances"
 )
 #'
-#+ echo = FALSE
+#' ## Fitted model-implied variance-covariance matrix
+#'
+#+ fitted_model_implied_covariance, echo = FALSE
 knitr::kable(
   x = muhatthetahat,
   caption = "$\\boldsymbol{\\hat{\\mu}} \\left( \\boldsymbol{\\hat{\\theta}} \\right)$ (`muhatthetahat`)"
 )
+#'
+#' ## Fitted model-implied mean vector
+#'
+#+ fitted_model_implied_mean, echo = FALSE
 knitr::kable(
   x = Sigmahatthetahat,
   caption = "$\\boldsymbol{\\hat{\\Sigma}} \\left( \\boldsymbol{\\hat{\\theta}} \\right)$ (`Sigmahatthetahat`)"
 )
+#'
+#' ## testthat
 #'
 #+ testthat
 test_that("regression_coefficients", {

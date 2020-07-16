@@ -9,7 +9,7 @@
 #'
 #+ data
 galton <- read.delim(
-  "data_galton.tsv",
+  "data_raw_galton.tsv",
   stringsAsFactors = TRUE
 )
 head(galton)

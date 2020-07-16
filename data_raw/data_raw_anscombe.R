@@ -9,7 +9,7 @@
 #'
 #+ data
 anscombe <- read.csv(
-  "anscombe.csv",
+  "data_raw_anscombe.csv",
 )
 head(anscombe)
 str(anscombe)

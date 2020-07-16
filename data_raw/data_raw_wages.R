@@ -1,5 +1,5 @@
 #' ---
-#' title: "Data: lsat"
+#' title: "Data: wages"
 #' author: "Ivan Jacob Agaloos Pesigan"
 #' date: "`r Sys.Date()`"
 #' output:
@@ -8,14 +8,14 @@
 #' ---
 #'
 #+ data
-law <- read.csv(
-  "data_raw_law.csv",
+wages <- read.csv(
+  "data_raw_wages.csv",
 )
-head(law)
-str(law)
+head(wages)
+str(wages)
 #'
 #+ usedata
 usethis::use_data(
-  law,
+  wages,
   overwrite = TRUE
 )
