@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Temperature on Water Consumption Via Thirst — thirst • jeksterslabRdatarepo</title>
+<title>Model of the Stability of Alienation — alienation • jeksterslabRdatarepo</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,21 @@
 
 
 
-<meta property="og:title" content="Temperature on Water Consumption Via Thirst — thirst" />
-<meta property="og:description" content="A hypothetical study
-of the effects of temperature
-on water consumption." />
+<meta property="og:title" content="Model of the Stability of Alienation — alienation" />
+<meta property="og:description" content="The data comes from research
+on the stability of alienation using panel data.
+The variables in the model were aggregated
+from 932 individual responses
+drawn from a rural region of Illinois
+to a series of items from attitude scales
+measured in two time points (1967 and 1971).
+&quot;Anomia&quot; and &quot;powerlessness&quot; were both conceived
+as indicators of the latent variable &quot;alienation&quot;.
+Background variables including &quot;education&quot;,
+and the socio-economic index score (&quot;SEI&quot;)
+were also measured in 1967
+and were boh conceived as indicators
+of the respondent's socio-economic status." />
 
 
 
@@ -146,52 +157,67 @@ on water consumption." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Temperature on Water Consumption Via Thirst</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jeksterslabds/jeksterslabRdatarepo/blob/master/R/data_thirst.R'><code>R/data_thirst.R</code></a></small>
-    <div class="hidden name"><code>thirst.Rd</code></div>
+    <h1>Model of the Stability of Alienation</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jeksterslabds/jeksterslabRdatarepo/blob/master/R/data_alienation.R'><code>R/data_alienation.R</code></a></small>
+    <div class="hidden name"><code>alienation.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A hypothetical study
-of the effects of temperature
-on water consumption.</p>
+    <p>The data comes from research
+on the stability of alienation using panel data.
+The variables in the model were aggregated
+from 932 individual responses
+drawn from a rural region of Illinois
+to a series of items from attitude scales
+measured in two time points (1967 and 1971).
+"Anomia" and "powerlessness" were both conceived
+as indicators of the latent variable "alienation".
+Background variables including "education",
+and the socio-economic index score ("SEI")
+were also measured in 1967
+and were boh conceived as indicators
+of the respondent's socio-economic status.</p>
     </div>
 
-    <pre class="usage"><span class='no'>thirst</span></pre>
+    <pre class="usage"><span class='no'>alienation</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 50 cases and 3 variables:</p><dl'>
-<dt>temp</dt><dd><p>Room temperature in degrees Fahrenheit.</p></dd>
-<dt>thirst</dt><dd><p>Self-reported thirst at the end of a 2-hour period.</p></dd>
-<dt>water</dt><dd><p>Water consumed during the last 2 hours in deciliters.</p></dd>
+    <p>A 6 by 6 variance-covariance matrix
+summarized from 932 respondent.</p><dl'>
+<dt>anomia67</dt><dd><p>anomia measured in 1967.</p></dd>
+<dt>powerlessness67</dt><dd><p>powerlessness measured in 1967</p></dd>
+<dt>anomia71</dt><dd><p>anomia measured in 1971.</p></dd>
+<dt>powerlessness71</dt><dd><p>powerlessness measured in 1971</p></dd>
+<dt>education</dt><dd><p>measured as years of schooling</p></dd>
+<dt>sei</dt><dd><p>Duncan's socio-economic index score ("SEI")
+of the respondent's occupation</p></dd>
 
 </dl>
 
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p>Table 3.1 in MacKinnon (2008)</p>
+    <p>From Wheaton et al. (1977).</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>MacKinnon, D. P. (2008).
-<em>Introduction to statistical mediation analysis</em>.
-New York: Lawrence Erlbaum Associates.
-ISBN:9780805839746.
-Google:<a href='https://books.google.com/books/about/Introduction_to_Statistical_Mediation_An.html?id=vHUVYKfrdtYC'>vHUVYKfrdtYC</a>.</p>
+    <p>Wheaton, B., Muthén, B., Alwin, D., &amp; Summers, G. (1977).
+Assessing Reliability and Stability in Panel Models.
+<em>Sociological Methodology</em>, <em>8</em>, 84-136.
+doi:<a href='https://doi.org/10.2307/270754'>10.10.2307/270754</a>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>thirst</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"jeksterslabRdatarepo"</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>thirst</span>)</div><div class='output co'>#&gt; 'data.frame':	50 obs. of  3 variables:
-#&gt;  $ temp  : int  70 71 69 70 71 70 69 70 70 72 ...
-#&gt;  $ thirst: int  4 4 1 1 3 4 3 5 4 5 ...
-#&gt;  $ water : int  3 3 3 3 3 2 3 5 4 4 ...</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>thirst</span>)</div><div class='output co'>#&gt;   temp thirst water
-#&gt; 1   70      4     3
-#&gt; 2   71      4     3
-#&gt; 3   69      1     3
-#&gt; 4   70      1     3
-#&gt; 5   71      3     3
-#&gt; 6   70      4     2</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>alienation</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"jeksterslabRdatarepo"</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>alienation</span>)</div><div class='output co'>#&gt;  num [1:6, 1:6] 11.83 6.95 6.82 4.78 -3.84 ...
+#&gt;  - attr(*, "dimnames")=List of 2
+#&gt;   ..$ : chr [1:6] "anomia67" "powerless67" "anomia71" "powerless71" ...
+#&gt;   ..$ : chr [1:6] "anomia67" "powerless67" "anomia71" "powerless71" ...</div><div class='input'><span class='no'>alienation</span></div><div class='output co'>#&gt;             anomia67 powerless67 anomia71 powerless71 education     sei
+#&gt; anomia67      11.834       6.947    6.819       4.783    -3.839 -21.899
+#&gt; powerless67    6.947       9.364    5.091       5.028    -3.889 -18.831
+#&gt; anomia71       6.819       5.091   12.532       7.495    -3.841 -21.748
+#&gt; powerless71    4.783       5.028    7.495       9.986    -3.625 -18.775
+#&gt; education     -3.839      -3.889   -3.841      -3.625     9.610  35.522
+#&gt; sei          -21.899     -18.831  -21.748     -18.775    35.522 450.288</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

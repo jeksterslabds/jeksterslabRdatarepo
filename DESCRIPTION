@@ -25,6 +25,8 @@ Imports:
 	utils,
 	stats,
     psych,
+    lavaan,
+    semPlot,
     DT,
     ggplot2,
     GGally,
