@@ -1,0 +1,425 @@
+---
+title: "Notes: Model of the Stability of Alienation"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Notes: Model of the Stability of Alienation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r, packages, echo = FALSE, message = FALSE, warning = FALSE}
+library(jeksterslabRdatarepo)
+library(knitr)
+library(lavaan)
+library(semPlot)
+```
+
+## Load Data
+
+```{r, load}
+data(
+  alienation,
+  package = "jeksterslabRdatarepo"
+)
+```
+
+## Data Table
+
+```{r, DT, echo = FALSE}
+kable(
+  x = alienation
+)
+```
+
+## Model
+
+### Saturated Model
+
+```{r, cov}
+# model specification
+model_cov <- "
+  # covariances
+
+  # col 1
+  anomia67 ~~ anomia67
+  anomia71 ~~ anomia67
+  powerless67 ~~ anomia67
+  powerless71 ~~ anomia67
+  education ~~ anomia67
+  sei ~~ anomia67
+
+  # col 2
+  anomia71 ~~ anomia71
+  powerless67 ~~ anomia71
+  powerless71 ~~ anomia71
+  education ~~ anomia71
+  sei ~~ anomia71
+
+  # col 3
+  powerless67 ~~ powerless67
+  powerless71 ~~ powerless67
+  education ~~ powerless67
+  sei ~~ powerless67
+
+  # col 4
+  powerless71 ~~ powerless71
+  education ~~ powerless71
+  sei ~~ powerless71
+
+  # col 5
+  education ~~ education
+  sei ~~ education
+
+  # col 6
+  sei ~~ sei
+
+"
+# model fitting
+fit_cov <- sem(
+  model_cov,
+  sample.cov = alienation,
+  sample.nobs = 932
+)
+# results
+summary(fit_cov, fit.measures = TRUE, standardized = TRUE)
+semPaths(fit_cov, what = "path", whatLabels = "est", style = "ram", layout = "circle")
+```
+
+### Linear Regression Model
+
+```{r, regression}
+# model specification
+model_regression <- "
+  # regression
+  powerless71 ~ powerless67 + education
+
+  #-------------------------------------------------------
+  # The syntax above is sufficient to specify this model.
+  # The syntax below is added to be more explicit
+  # about the parameters being estimated.
+  #-------------------------------------------------------
+
+  # variances of regressors
+  powerless67 ~~ powerless67
+  education ~~ education
+
+  # covariance of regressors
+  powerless67 ~~ education
+
+  # residual variance
+  powerless71 ~~ powerless71
+"
+# model fitting
+fit_regression <- sem(
+  model_regression,
+  sample.cov = alienation,
+  sample.nobs = 932
+)
+# results
+summary(fit_regression, fit.measures = TRUE, standardized = TRUE)
+semPaths(fit_regression, what = "path", whatLabels = "est", style = "ram")
+```
+
+
+### Two Equation Path Model
+
+```{r, path}
+# model specification
+model_path <- "
+  # regression
+  anomia71 ~ anomia67 + powerless67
+  powerless71 ~ anomia67 + powerless67
+
+  #-------------------------------------------------------
+  # The syntax above is sufficient to specify this model.
+  # The syntax below is added to be more explicit
+  # about the parameters being estimated.
+  #-------------------------------------------------------
+  
+  # variances of regressors
+  anomia67 ~~ anomia67
+  powerless67 ~~ powerless67
+
+  # covariance of regressors
+  anomia67 ~~ powerless67
+
+  # residual variances
+  anomia71 ~~ anomia71
+  powerless71 ~~ powerless71
+"
+# model fitting
+fit_path <- sem(
+  model_path,
+  sample.cov = alienation,
+  sample.nobs = 932
+)
+# results
+summary(fit_path, fit.measures = TRUE, standardized = TRUE)
+semPaths(object = fit_path, what = "path", whatLabels = "est", style = "ram")
+```
+
+### Factor Model
+
+#### One-Factor Model with Two Indicators
+
+```{r, cfa_1}
+# model specification
+model_cfa_1 <- "
+  # measurement model
+  alienation =~ 1 * anomia67 + powerless67
+
+  # The syntax above is sufficient to specify this model.
+  # The syntax below is added to be more explicit
+  # about the parameters being estimated.
+
+  # residual variances
+  anomia67 ~~ anomia67
+  powerless67 ~~ powerless67
+  alienation ~~ alienation
+"
+# model fitting
+fit_cfa_1 <- sem(
+  model_cfa_1,
+  sample.cov = alienation,
+  sample.nobs = 932
+)
+# results
+summary(fit_cfa_1, fit.measures = TRUE, standardized = TRUE)
+semPaths(fit_cfa_1, what = "path", whatLabels = "est", style = "ram")
+```
+
+#### One-Factor Model with Four Indicators
+
+```{r, cfa_2}
+# model specification
+model_cfa_2 <- "
+  # measurement model
+  alienation =~ 1 * anomia67 + powerless67 + anomia71 + powerless71
+
+  # The syntax above is sufficient to specify this model.
+  # The syntax below is added to be more explicit
+  # about the parameters being estimated.
+
+  # residual variances
+  anomia67 ~~ anomia67
+  powerless67 ~~ powerless67
+  anomia71 ~~ anomia71
+  powerless71 ~~ powerless71
+  alienation ~~ alienation
+"
+# model fitting
+fit_cfa_2 <- sem(
+  model_cfa_2,
+  sample.cov = alienation,
+  sample.nobs = 932
+)
+# results
+summary(fit_cfa_2, fit.measures = TRUE, standardized = TRUE)
+semPaths(fit_cfa_2, what = "path", whatLabels = "est", style = "ram")
+```
+
+#### Two-Factor Model - Parameterization 1
+
+```{r, cfa_3}
+# model specification
+model_cfa_3 <- "
+  # measurement model
+  alienation67 =~ 1 * anomia67 + powerless67
+  alienation71 =~ 1 * anomia71 + powerless71
+
+  # The syntax above is sufficient to specify this model.
+  # The syntax below is added to be more explicit
+  # about the parameters being estimated.
+
+  # covariance of factors
+  alienation67 ~~ alienation71
+
+  # variances of factors
+  alienation67 ~~ alienation67
+  alienation71 ~~ alienation71
+
+  # residual variances
+  anomia67 ~~ anomia67
+  powerless67 ~~ powerless67
+  anomia71 ~~ anomia71
+  powerless71 ~~ powerless71
+"
+# model fitting
+fit_cfa_3 <- sem(
+  model_cfa_3,
+  sample.cov = alienation,
+  sample.nobs = 932
+)
+# results
+summary(fit_cfa_3, fit.measures = TRUE, standardized = TRUE)
+semPaths(fit_cfa_3, what = "path", whatLabels = "est", style = "ram")
+```
+
+#### Two-Factor Model - Parameterization 2
+
+```{r, cfa_4}
+# model specification
+model_cfa_4 <- "
+  # measurement model
+  alienation67 =~ NA * anomia67 + powerless67
+  alienation71 =~ NA * anomia71 + powerless71
+
+  # The syntax above is sufficient to specify this model.
+  # The syntax below is added to be more explicit
+  # about the parameters being estimated.
+
+  # covariance of factors
+  alienation67 ~~ alienation71
+  
+  # variances of factors
+  alienation67 ~~ 1 * alienation67
+  alienation71 ~~ 1 * alienation71
+
+  # measurement error variances
+  anomia67 ~~ anomia67
+  powerless67 ~~ powerless67
+  anomia71 ~~ anomia71
+  powerless71 ~~ powerless71
+"
+# model fitting
+fit_cfa_4 <- sem(
+  model_cfa_4,
+  sample.cov = alienation,
+  sample.nobs = 932
+)
+# results
+summary(fit_cfa_4, fit.measures = TRUE, standardized = TRUE)
+semPaths(fit_cfa_4, what = "path", whatLabels = "est", style = "ram")
+```
+
+#### Two-Factor Model - Correlated Measurement Errors
+
+```{r, cfa_5}
+# model specification
+model_cfa_5 <- "
+  # measurement model
+  alienation67 =~ 1 * anomia67 + powerless67
+  alienation71 =~ 1 * anomia71 + powerless71
+
+  # The syntax above is sufficient to specify this model.
+  # The syntax below is added to be more explicit
+  # about the parameters being estimated.
+
+  # covariance of factors
+  alienation67 ~~ alienation71
+  
+  # variances of factors
+  alienation67 ~~ alienation67
+  alienation71 ~~ alienation71
+
+  # measurement error variances
+  anomia67 ~~ anomia67
+  powerless67 ~~ powerless67
+  anomia71 ~~ anomia71
+  powerless71 ~~ powerless71
+
+  # measurement error covariances
+  anomia67 ~~ anomia71
+  powerless67 ~~ powerless71
+"
+# model fitting
+fit_cfa_5 <- sem(
+  model_cfa_5,
+  sample.cov = alienation,
+  sample.nobs = 932
+)
+# results
+summary(fit_cfa_5, fit.measures = TRUE, standardized = TRUE)
+semPaths(fit_cfa_5, what = "path", whatLabels = "est", style = "ram")
+```
+
+### Complete Latent Variable Model
+
+```{r, cfa_6}
+# model specification
+model_cfa_6 <- "
+  # measurement model
+  alienation67 =~ 1 * anomia67 + powerless67
+  alienation71 =~ 1 * anomia71 + powerless71
+  ses =~ 1 * education + sei 
+
+  # The syntax above is sufficient to specify this model.
+  # The syntax below is added to be more explicit
+  # about the parameters being estimated.
+
+  # regression
+  alienation71 ~ alienation67 + ses
+  alienation67 ~ ses
+
+  # variances of factors
+  ses ~~ ses
+
+  # residual variances of factors
+  alienation67 ~~ alienation67
+  alienation71 ~~ alienation71
+
+  # measurement error variances
+  anomia67 ~~ anomia67
+  powerless67 ~~ powerless67
+  anomia71 ~~ anomia71
+  powerless71 ~~ powerless71
+
+  # measurement error covariances
+  anomia67 ~~ anomia71
+  powerless67 ~~ powerless71
+"
+# model fitting
+fit_cfa_6 <- sem(
+  model_cfa_6,
+  sample.cov = alienation,
+  sample.nobs = 932
+)
+# results
+summary(fit_cfa_6, fit.measures = TRUE, standardized = TRUE)
+semPaths(fit_cfa_6, what = "path", whatLabels = "est", style = "ram")
+```
+
+### Second-Order Factor Model 
+
+```{r, cfa_7}
+# model specification
+model_cfa_7 <- "
+  # measurement model
+  alienation67 =~ 1 * anomia67 + powerless67
+  alienation71 =~ 1 * anomia71 + powerless71
+  alienation =~ a * alienation67 + a * alienation71
+
+  # The syntax above is sufficient to specify this model.
+  # The syntax below is added to be more explicit
+  # about the parameters being estimated.
+
+  # variance of second-order factor
+  alienation ~~ alienation
+
+  # residual variances of factors
+  alienation67 ~~ alienation67
+  alienation71 ~~ alienation71
+
+  # measurement error covariances
+  anomia67 ~~ anomia71
+  powerless67 ~~ powerless71
+"
+# model fitting
+fit_cfa_7 <- sem(
+  model_cfa_7,
+  sample.cov = alienation,
+  sample.nobs = 932
+)
+# results
+summary(fit_cfa_7, fit.measures = TRUE, standardized = TRUE)
+semPaths(fit_cfa_7, what = "path", whatLabels = "est", style = "ram")
+```
