@@ -1,5 +1,5 @@
 #' ---
-#' title: "Data: galton"
+#' title: "Data: heights"
 #' author: "Ivan Jacob Agaloos Pesigan"
 #' date: "`r Sys.Date()`"
 #' output:
@@ -8,15 +8,15 @@
 #' ---
 #'
 #+ data
-galton <- read.delim(
-  "data_raw_galton.tsv",
+heights <- read.delim(
+  "data_raw_heights.tsv",
   stringsAsFactors = TRUE
 )
-head(galton)
-str(galton)
+head(heights)
+str(heights)
 #'
 #+ usedata
 usethis::use_data(
-  galton,
+  heights,
   overwrite = TRUE
 )

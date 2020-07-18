@@ -38,9 +38,9 @@
 #'   }
 #' }
 #' @examples
-#' data(galton, package = "jeksterslabRdatarepo")
-#' str(galton)
-#' head(galton)
+#' data(heights, package = "jeksterslabRdatarepo")
+#' str(heights)
+#' head(heights)
 #' @references
 #' Galton, F. (1886).
 #' Regression Towards Mediocrity in Hereditary Stature.
@@ -56,4 +56,4 @@
 #' "Galton height data",
 #' \url{https://doi.org/10.7910/DVN/T0HSJ1}, Harvard Dataverse, V1,
 #' UNF:6:2ty+0YgqR2a66FlvjCuPkQ== \[fileUNF\]
-"galton"
+"heights"

@@ -33,9 +33,9 @@
 #'   }
 #' }
 #' @examples
-#' data(anscombe, package = "jeksterslabRdatarepo")
-#' str(anscombe)
-#' head(anscombe)
+#' data(quartet, package = "jeksterslabRdatarepo")
+#' str(quartet)
+#' head(quartet)
 #' @references
 #' Anscombe, F. J. (1973).
 #' Graphs in statistical analysis.
@@ -45,4 +45,4 @@
 #' [Wikipedia: Anscombe's quartet](https://en.wikipedia.org/wiki/Anscombe\%27s_quartet)
 #' @source
 #' Table in Anscombe (1973).
-"anscombe"
+"quartet"

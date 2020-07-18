@@ -29,7 +29,7 @@ library(psych)
 
 ```{r, load}
 data(
-  anscombe,
+  quartet,
   package = "jeksterslabRdatarepo"
 )
 ```
@@ -38,7 +38,7 @@ data(
 
 ```{r, DT, echo = FALSE}
 datatable(
-  anscombe,
+  quartet,
   options = list(
     pageLength = 11,
     dom = "t"
@@ -56,13 +56,13 @@ muhat_x <- sigmahat_x <- muhat_y <- sigmahat_y <- rhohat <- rep(x = NA, times = 
 fit <- vector(mode = "list", length = length(pair))
 for (i in seq_along(pair)) {
   fit[[i]] <- lm(
-    anscombe[, y[i]] ~ anscombe[, x[i]]
+    quartet[, y[i]] ~ quartet[, x[i]]
   )
-  muhat_x[i] <- mean(anscombe[, x[i]])
-  sigmahat_x[i] <- sd(anscombe[, x[i]])
-  muhat_y[i] <- mean(anscombe[, y[i]])
-  sigmahat_y[i] <- sd(anscombe[, y[i]])
-  rhohat[i] <- cor(anscombe[, x[i]], anscombe[, y[i]])
+  muhat_x[i] <- mean(quartet[, x[i]])
+  sigmahat_x[i] <- sd(quartet[, x[i]])
+  muhat_y[i] <- mean(quartet[, y[i]])
+  sigmahat_y[i] <- sd(quartet[, y[i]])
+  rhohat[i] <- cor(quartet[, x[i]], quartet[, y[i]])
 }
 ```
 
@@ -70,7 +70,7 @@ for (i in seq_along(pair)) {
 
 ```{r, plot01, echo = FALSE, message = FALSE, warning = FALSE}
 plot_ly(
-  data = anscombe,
+  data = quartet,
   type = "scatter",
   mode = "markers",
   x = ~x1,
@@ -93,7 +93,7 @@ plot_ly(
 
 ```{r, plot02, echo = FALSE, message = FALSE, warning = FALSE}
 plot_ly(
-  data = anscombe,
+  data = quartet,
   type = "scatter",
   mode = "markers",
   x = ~x2,
@@ -116,7 +116,7 @@ plot_ly(
 
 ```{r, plot03, echo = FALSE, message = FALSE, warning = FALSE}
 plot_ly(
-  data = anscombe,
+  data = quartet,
   type = "scatter",
   mode = "markers",
   x = ~x3,
@@ -139,7 +139,7 @@ plot_ly(
 
 ```{r, plot04, echo = FALSE, message = FALSE, warning = FALSE}
 plot_ly(
-  data = anscombe,
+  data = quartet,
   type = "scatter",
   mode = "markers",
   x = ~x4,

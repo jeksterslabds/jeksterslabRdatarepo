@@ -1,5 +1,5 @@
 #' ---
-#' title: "Data: anscombe"
+#' title: "Data: quartet"
 #' author: "Ivan Jacob Agaloos Pesigan"
 #' date: "`r Sys.Date()`"
 #' output:
@@ -8,14 +8,14 @@
 #' ---
 #'
 #+ data
-anscombe <- read.csv(
-  "data_raw_anscombe.csv",
+quartet <- read.csv(
+  "data_raw_quartet.csv",
 )
-head(anscombe)
-str(anscombe)
+head(quartet)
+str(quartet)
 #'
 #+ usedata
 usethis::use_data(
-  anscombe,
+  quartet,
   overwrite = TRUE
 )

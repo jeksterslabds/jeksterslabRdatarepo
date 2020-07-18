@@ -29,7 +29,7 @@ library(psych)
 
 ```{r, load}
 data(
-  galton,
+  heights,
   package = "jeksterslabRdatarepo"
 )
 ```
@@ -37,7 +37,7 @@ data(
 ## Data Table
 
 ```{r, DT, echo = FALSE}
-datatable(galton)
+datatable(heights)
 ```
 
 ## Plots
@@ -46,7 +46,7 @@ datatable(galton)
 
 ```{r, plot01, echo = FALSE, message = FALSE, warning = FALSE}
 p <- ggpairs(
-  data = galton,
+  data = heights,
   mapping = aes(color = gender),
   columns = c(2, 3, 5, 6)
 )
@@ -57,7 +57,7 @@ ggplotly(p)
 
 ```{r, plot02, echo = FALSE, message = FALSE, warning = FALSE}
 plot_ly(
-  data = galton,
+  data = heights,
   type = "scatter",
   mode = "markers",
   x = ~father,
@@ -70,7 +70,7 @@ plot_ly(
 
 ```{r, plot03, echo = FALSE, message = FALSE, warning = FALSE}
 plot_ly(
-  data = galton,
+  data = heights,
   type = "scatter",
   mode = "markers",
   x = ~mother,
@@ -84,7 +84,7 @@ plot_ly(
 ```{r, descriptives01, echo = FALSE}
 kable(
   x = summary(
-    galton
+    heights
   )
 )
 ```
@@ -92,7 +92,7 @@ kable(
 ```{r, descriptives02, echo = FALSE, message = FALSE, warning = FALSE}
 kable(
   x = describe(
-    galton
+    heights
   )
 )
 ```
