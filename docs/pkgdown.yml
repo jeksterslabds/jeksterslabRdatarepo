@@ -1,0 +1,17 @@
+pandoc: 2.9.2.1
+pkgdown: 1.5.1
+pkgdown_sha: ~
+articles:
+  jeksterslabRdatarepo: jeksterslabRdatarepo.html
+  notes_alienation: notes/notes_alienation.html
+  notes_heights: notes/notes_heights.html
+  notes_law: notes/notes_law.html
+  notes_quartet: notes/notes_quartet.html
+  notes_thirst: notes/notes_thirst.html
+  notes_wages: notes/notes_wages.html
+  test_data_thirst: tests/test_data_thirst.html
+last_built: 2020-07-21T22:22Z
+urls:
+  reference: https://github.com/jeksterslabds/jeksterslabRdatarepo//reference
+  article: https://github.com/jeksterslabds/jeksterslabRdatarepo//articles
+
