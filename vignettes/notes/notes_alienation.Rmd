@@ -34,6 +34,8 @@ data(
 
 ## Data Table
 
+### Variance-Covariance Matrix
+
 ```{r, DT, echo = FALSE}
 kable(
   x = alienation
@@ -177,9 +179,11 @@ model_cfa_1 <- "
   # measurement model
   alienation =~ 1 * anomia67 + powerless67
 
+  #-------------------------------------------------------
   # The syntax above is sufficient to specify this model.
   # The syntax below is added to be more explicit
   # about the parameters being estimated.
+  #-------------------------------------------------------
 
   # residual variances
   anomia67 ~~ anomia67
@@ -205,9 +209,11 @@ model_cfa_2 <- "
   # measurement model
   alienation =~ 1 * anomia67 + powerless67 + anomia71 + powerless71
 
+  #-------------------------------------------------------
   # The syntax above is sufficient to specify this model.
   # The syntax below is added to be more explicit
   # about the parameters being estimated.
+  #-------------------------------------------------------
 
   # residual variances
   anomia67 ~~ anomia67
@@ -236,9 +242,11 @@ model_cfa_3 <- "
   alienation67 =~ 1 * anomia67 + powerless67
   alienation71 =~ 1 * anomia71 + powerless71
 
+  #-------------------------------------------------------
   # The syntax above is sufficient to specify this model.
   # The syntax below is added to be more explicit
   # about the parameters being estimated.
+  #-------------------------------------------------------
 
   # covariance of factors
   alienation67 ~~ alienation71
@@ -273,17 +281,19 @@ model_cfa_4 <- "
   alienation67 =~ NA * anomia67 + powerless67
   alienation71 =~ NA * anomia71 + powerless71
 
-  # The syntax above is sufficient to specify this model.
-  # The syntax below is added to be more explicit
-  # about the parameters being estimated.
-
-  # covariance of factors
-  alienation67 ~~ alienation71
-  
   # variances of factors
   alienation67 ~~ 1 * alienation67
   alienation71 ~~ 1 * alienation71
 
+  #-------------------------------------------------------
+  # The syntax above is sufficient to specify this model.
+  # The syntax below is added to be more explicit
+  # about the parameters being estimated.
+  #-------------------------------------------------------
+
+  # covariance of factors
+  alienation67 ~~ alienation71
+  
   # measurement error variances
   anomia67 ~~ anomia67
   powerless67 ~~ powerless67
@@ -310,9 +320,15 @@ model_cfa_5 <- "
   alienation67 =~ 1 * anomia67 + powerless67
   alienation71 =~ 1 * anomia71 + powerless71
 
+  # measurement error covariances
+  anomia67 ~~ anomia71
+  powerless67 ~~ powerless71
+
+  #-------------------------------------------------------
   # The syntax above is sufficient to specify this model.
   # The syntax below is added to be more explicit
   # about the parameters being estimated.
+  #-------------------------------------------------------
 
   # covariance of factors
   alienation67 ~~ alienation71
@@ -326,10 +342,6 @@ model_cfa_5 <- "
   powerless67 ~~ powerless67
   anomia71 ~~ anomia71
   powerless71 ~~ powerless71
-
-  # measurement error covariances
-  anomia67 ~~ anomia71
-  powerless67 ~~ powerless71
 "
 # model fitting
 fit_cfa_5 <- sem(
@@ -352,13 +364,19 @@ model_cfa_6 <- "
   alienation71 =~ 1 * anomia71 + powerless71
   ses =~ 1 * education + sei 
 
-  # The syntax above is sufficient to specify this model.
-  # The syntax below is added to be more explicit
-  # about the parameters being estimated.
+  # measurement error covariances
+  anomia67 ~~ anomia71
+  powerless67 ~~ powerless71
 
   # regression
   alienation71 ~ alienation67 + ses
   alienation67 ~ ses
+
+  #-------------------------------------------------------
+  # The syntax above is sufficient to specify this model.
+  # The syntax below is added to be more explicit
+  # about the parameters being estimated.
+  #-------------------------------------------------------
 
   # variances of factors
   ses ~~ ses
@@ -372,10 +390,6 @@ model_cfa_6 <- "
   powerless67 ~~ powerless67
   anomia71 ~~ anomia71
   powerless71 ~~ powerless71
-
-  # measurement error covariances
-  anomia67 ~~ anomia71
-  powerless67 ~~ powerless71
 "
 # model fitting
 fit_cfa_6 <- sem(
@@ -398,9 +412,15 @@ model_cfa_7 <- "
   alienation71 =~ 1 * anomia71 + powerless71
   alienation =~ a * alienation67 + a * alienation71
 
+  # measurement error covariances
+  anomia67 ~~ anomia71
+  powerless67 ~~ powerless71
+
+  #-------------------------------------------------------
   # The syntax above is sufficient to specify this model.
   # The syntax below is added to be more explicit
   # about the parameters being estimated.
+  #-------------------------------------------------------
 
   # variance of second-order factor
   alienation ~~ alienation
@@ -408,10 +428,6 @@ model_cfa_7 <- "
   # residual variances of factors
   alienation67 ~~ alienation67
   alienation71 ~~ alienation71
-
-  # measurement error covariances
-  anomia67 ~~ anomia71
-  powerless67 ~~ powerless71
 "
 # model fitting
 fit_cfa_7 <- sem(
