@@ -38,7 +38,7 @@ data(
 
 ```{r, DT, echo = FALSE}
 datatable(
-  quartet,
+  data = quartet,
   options = list(
     pageLength = 11,
     dom = "t"

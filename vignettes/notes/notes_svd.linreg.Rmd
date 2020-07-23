@@ -29,40 +29,89 @@ library(psych)
 
 ```{r, load}
 data(
-  svd,
+  svd.linreg,
   package = "jeksterslabRdatarepo"
 )
-svd <- as.data.frame(
+```
+
+### Data A
+
+```{r}
+dataa <- as.data.frame(
   cbind(
-  y = svd$y,
-  svd$X
+    y = svd.linreg$ya,
+    svd.linreg$Xa
+  )
 )
+```
+
+### Data B
+
+```{r}
+datab <- as.data.frame(
+  cbind(
+    y = svd.linreg$yb,
+    svd.linreg$Xb
+  )
 )
 ```
 
 ## Data Table
 
-```{r, DT, echo = FALSE}
-datatable(svd)
+### Data A
+
+```{r, DT1, echo = FALSE}
+datatable(
+  data = dataa,
+  options = list(
+    pageLength = 8,
+    dom = "t"
+  )
+)
+```
+
+### Data B
+
+```{r, DT2, echo = FALSE}
+datatable(
+  data = datab,
+  options = list(
+    pageLength = 8,
+    dom = "t"
+  )
+)
 ```
 
 ## Plots
 
 ### Scatter Plot Matrix
 
+#### Data A
+
 ```{r, plot01, echo = FALSE, message = FALSE, warning = FALSE}
 p <- ggpairs(
-  data = svd
+  data = dataa
+)
+ggplotly(p)
+```
+
+#### Data B
+
+```{r, plot02, echo = FALSE, message = FALSE, warning = FALSE}
+p <- ggpairs(
+  data = datab
 )
 ggplotly(p)
 ```
 
 ## Descritive Statistics
 
+### Data A
+
 ```{r, descriptives01, echo = FALSE}
 kable(
   x = summary(
-    svd
+    dataa
   )
 )
 ```
@@ -70,7 +119,25 @@ kable(
 ```{r, descriptives02, echo = FALSE, message = FALSE, warning = FALSE}
 kable(
   x = describe(
-    svd
+    dataa
+  )
+)
+```
+
+### Data B
+
+```{r, descriptives03, echo = FALSE}
+kable(
+  x = summary(
+    datab
+  )
+)
+```
+
+```{r, descriptives04, echo = FALSE, message = FALSE, warning = FALSE}
+kable(
+  x = describe(
+    datab
   )
 )
 ```
