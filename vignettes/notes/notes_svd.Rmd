@@ -1,0 +1,76 @@
+---
+title: "Notes: Singular Value Decomposition in Regression Analysis"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Notes: Singular Value Decomposition in Regression Analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r, packages, echo = FALSE, message = FALSE, warning = FALSE}
+library(jeksterslabRdatarepo)
+library(knitr)
+library(DT)
+library(GGally)
+library(plotly)
+library(psych)
+```
+
+## Load Data
+
+```{r, load}
+data(
+  svd,
+  package = "jeksterslabRdatarepo"
+)
+svd <- as.data.frame(
+  cbind(
+  y = svd$y,
+  svd$X
+)
+)
+```
+
+## Data Table
+
+```{r, DT, echo = FALSE}
+datatable(svd)
+```
+
+## Plots
+
+### Scatter Plot Matrix
+
+```{r, plot01, echo = FALSE, message = FALSE, warning = FALSE}
+p <- ggpairs(
+  data = svd
+)
+ggplotly(p)
+```
+
+## Descritive Statistics
+
+```{r, descriptives01, echo = FALSE}
+kable(
+  x = summary(
+    svd
+  )
+)
+```
+
+```{r, descriptives02, echo = FALSE, message = FALSE, warning = FALSE}
+kable(
+  x = describe(
+    svd
+  )
+)
+```
