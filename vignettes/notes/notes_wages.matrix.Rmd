@@ -1,0 +1,92 @@
+---
+title: "Notes: Wages and Related Data for 1289 Workers (Matrix Format)"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Notes: Wages and Related Data for 1289 Workers (Matrix Format)}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r, packages, echo = FALSE, message = FALSE, warning = FALSE}
+library(jeksterslabRdatarepo)
+library(knitr)
+library(DT)
+library(GGally)
+library(plotly)
+library(psych)
+```
+
+## Load Data
+
+```{r, load}
+data(
+  wages.matrix,
+  package = "jeksterslabRdatarepo"
+)
+```
+
+## Data Table
+
+```{r, DT, echo = FALSE}
+datatable(
+  as.data.frame(
+    cbind(
+      wages.matrix[["y"]], 
+      wages.matrix[["X"]]
+    )
+  )
+)
+```
+
+## Plots
+
+### Scatter Plot Matrix
+
+```{r, plot01, echo = FALSE, message = FALSE, warning = FALSE}
+p <- ggpairs(
+  data = as.data.frame(
+    cbind(
+      wages.matrix[["y"]],
+      wages.matrix[["X"]]
+    )
+  )
+)
+ggplotly(p)
+```
+
+## Descritive Statistics
+
+```{r, descriptives01, echo = FALSE}
+kable(
+  x = summary(
+    wages.matrix[["X"]]
+  )
+)
+kable(
+  x = summary(
+    wages.matrix[["y"]]
+  )
+)
+```
+
+```{r, descriptives02, echo = FALSE, message = FALSE, warning = FALSE}
+kable(
+  x = describe(
+    wages.matrix[["X"]]
+  )
+)
+kable(
+  x = describe(
+    wages.matrix[["y"]]
+  )
+)
+```
