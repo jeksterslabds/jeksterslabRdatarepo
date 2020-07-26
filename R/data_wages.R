@@ -34,7 +34,7 @@
 #' str(wages)
 #' head(wages)
 #' @source
-#' From Chapter 4 in Gujarati(2019).
+#' From Chapter 4 in Gujarati (2019).
 #' @references
 #' Gujarati, D. N. (2019). *Linear regression: A mathematical introduction*.
 #' Thousand Oaks: SAGE Publications.
