@@ -19,6 +19,10 @@ y <- matrix(
 )
 colnames(y) <- "wages"
 X <- wages[, -1]
+X <- cbind(
+  constant = 1,
+  X
+)
 X <- as.matrix(X)
 head(y)
 head(X)
