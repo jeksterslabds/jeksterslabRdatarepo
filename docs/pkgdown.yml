@@ -7,12 +7,13 @@ articles:
   notes_heights: notes/notes_heights.html
   notes_law: notes/notes_law.html
   notes_quartet: notes/notes_quartet.html
+  notes_salary: notes/notes_salary.html
   notes_svd.linreg: notes/notes_svd.linreg.html
   notes_thirst: notes/notes_thirst.html
   notes_wages: notes/notes_wages.html
   notes_wages.matrix: notes/notes_wages.matrix.html
   test_data_thirst: tests/test_data_thirst.html
-last_built: 2020-07-26T05:23Z
+last_built: 2020-07-30T13:48Z
 urls:
   reference: https://github.com/jeksterslabds/jeksterslabRdatarepo//reference
   article: https://github.com/jeksterslabds/jeksterslabRdatarepo//articles

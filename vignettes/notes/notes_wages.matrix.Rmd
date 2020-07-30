@@ -40,7 +40,7 @@ data(
 datatable(
   as.data.frame(
     cbind(
-      wages.matrix[["y"]], 
+      wages.matrix[["y"]],
       wages.matrix[["X"]]
     )
   )
