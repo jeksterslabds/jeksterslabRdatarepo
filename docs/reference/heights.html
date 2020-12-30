@@ -81,7 +81,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -137,7 +137,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/jeksterslabds/jeksterslabRdatarepo/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -164,12 +164,12 @@
 (i.e., where the term "regression" comes from).</p>
     </div>
 
-    <pre class="usage"><span class='no'>heights</span></pre>
+    <pre class="usage"><span class='va'>heights</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 898 cases and 6 variables:</p><dl'>
+    <p>A data frame with 898 cases and 6 variables:</p><dl>
 <dt>family</dt><dd><p>The family that the child belongs to,
 labeled by the numbers from 1 to 204 and 136A.</p></dd>
 <dt>father</dt><dd><p>The father's height,
@@ -204,8 +204,9 @@ doi:<a href='https://doi.org/10.2307/2841583'>10.2307/2841583</a>.</p>
 <p><a href='https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2019.01275.x'>The troubling legacy of Francis Galton</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>heights</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"jeksterslabRdatarepo"</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>heights</span>)</div><div class='output co'>#&gt; 'data.frame':	898 obs. of  8 variables:
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>heights</span>, package <span class='op'>=</span> <span class='st'>"jeksterslabRdatarepo"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>heights</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 'data.frame':	898 obs. of  8 variables:
 #&gt;  $ family: Factor w/ 197 levels "1","10","100",..: 1 1 1 1 108 108 108 108 123 123 ...
 #&gt;  $ father: num  78.5 78.5 78.5 78.5 75.5 75.5 75.5 75.5 75 75 ...
 #&gt;  $ mother: num  67 67 67 67 66.5 66.5 66.5 66.5 64 64 ...
@@ -213,7 +214,8 @@ doi:<a href='https://doi.org/10.2307/2841583'>10.2307/2841583</a>.</p>
 #&gt;  $ height: num  73.2 69.2 69 69 73.5 72.5 65.5 65.5 71 68 ...
 #&gt;  $ kids  : int  4 4 4 4 4 4 4 4 2 2 ...
 #&gt;  $ male  : num  1 0 0 0 1 1 0 0 1 0 ...
-#&gt;  $ female: num  0 1 1 1 0 0 1 1 0 1 ...</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>heights</span>)</div><div class='output co'>#&gt;   family father mother gender height kids male female
+#&gt;  $ female: num  0 1 1 1 0 0 1 1 0 1 ...</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>heights</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;   family father mother gender height kids male female
 #&gt; 1      1   78.5   67.0      M   73.2    4    1      0
 #&gt; 2      1   78.5   67.0      F   69.2    4    0      1
 #&gt; 3      1   78.5   67.0      F   69.0    4    0      1
@@ -235,7 +237,7 @@ doi:<a href='https://doi.org/10.2307/2841583'>10.2307/2841583</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

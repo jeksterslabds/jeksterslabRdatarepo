@@ -82,7 +82,7 @@ for March 1995." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -138,7 +138,7 @@ for March 1995." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/jeksterslabds/jeksterslabRdatarepo/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -166,16 +166,16 @@ from the Cirrent Population Survey (CPS)
 for March 1995.</p>
     </div>
 
-    <pre class="usage"><span class='no'>wages.matrix</span></pre>
+    <pre class="usage"><span class='va'>wages.matrix</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A list with two elements:</p><dl'>
+    <p>A list with two elements:</p><dl>
 <dt>y</dt><dd><p>wages</p></dd>
 <dt>X</dt><dd><p>gender, race, union, education, experiemce, and age</p></dd>
 
-</dl><p><code>X</code> has the following elements:</p><dl'>
+</dl><p><code>X</code> has the following elements:</p><dl>
 <dt>gender</dt><dd><p>Gender, 1 for female, 0 for male.</p></dd>
 <dt>race</dt><dd><p>Race, 1 for nonwhite workers and 0 for white workers.</p></dd>
 <dt>union</dt><dd><p>Union status, 1 if in union, 0 otherwise.</p></dd>
@@ -195,8 +195,9 @@ ISBN:9781544336558.
 Google:<a href='https://books.google.com/books/about/Linear_Regression.html?id=pqxyDwAAQBAJ'>pqxyDwAAQBAJ</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>wages.matrix</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"jeksterslabRdatarepo"</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>wages.matrix</span>)</div><div class='output co'>#&gt; List of 2
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>wages.matrix</span>, package <span class='op'>=</span> <span class='st'>"jeksterslabRdatarepo"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>wages.matrix</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; List of 2
 #&gt;  $ X: num [1:1289, 1:7] 1 1 1 1 1 1 1 1 1 1 ...
 #&gt;   ..- attr(*, "dimnames")=List of 2
 #&gt;   .. ..$ : NULL
@@ -204,13 +205,15 @@ Google:<a href='https://books.google.com/books/about/Linear_Regression.html?id=p
 #&gt;  $ y: num [1:1289, 1] 11.6 5 12 7 21.1 ...
 #&gt;   ..- attr(*, "dimnames")=List of 2
 #&gt;   .. ..$ : NULL
-#&gt;   .. ..$ : chr "wages"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>wages.matrix</span><span class='kw'>[[</span><span class='st'>"y"</span>]])</div><div class='output co'>#&gt;      wages
+#&gt;   .. ..$ : chr "wages"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>wages.matrix</span><span class='op'>[[</span><span class='st'>"y"</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;      wages
 #&gt; [1,] 11.55
 #&gt; [2,]  5.00
 #&gt; [3,] 12.00
 #&gt; [4,]  7.00
 #&gt; [5,] 21.15
-#&gt; [6,]  6.92</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>wages.matrix</span><span class='kw'>[[</span><span class='st'>"X"</span>]])</div><div class='output co'>#&gt;      constant gender race union education experience age
+#&gt; [6,]  6.92</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>wages.matrix</span><span class='op'>[[</span><span class='st'>"X"</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;      constant gender race union education experience age
 #&gt; [1,]        1      1    0     0        12         20  38
 #&gt; [2,]        1      0    0     0         9          9  24
 #&gt; [3,]        1      0    0     0        16         15  37
@@ -232,7 +235,7 @@ Google:<a href='https://books.google.com/books/about/Linear_Regression.html?id=p
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -95,7 +95,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/jeksterslabds/jeksterslabRdatarepo/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -109,13 +109,13 @@
 
       
 
-      </header><script src="notes_alienation_files/header-attrs-2.3/header-attrs.js"></script><script src="notes_alienation_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="notes_alienation_files/header-attrs-2.6/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Notes: Model of the Stability of Alienation</h1>
                         <h4 class="author">Ivan Jacob Agaloos Pesigan</h4>
             
-            <h4 class="date">2020-08-03</h4>
+            <h4 class="date">2020-12-31</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/jeksterslabds/jeksterslabRdatarepo/blob/master/vignettes/notes/notes_alienation.Rmd"><code>vignettes/notes/notes_alienation.Rmd</code></a></small>
       <div class="hidden name"><code>notes_alienation.Rmd</code></div>
@@ -127,10 +127,11 @@
 <div id="load-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#load-data" class="anchor"></a>Load Data</h2>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(
-  <span class="no">alienation</span>,
-  <span class="kw">package</span> <span class="kw">=</span> <span class="st">"jeksterslabRdatarepo"</span>
-)</pre></body></html></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span>
+  <span class="va">alienation</span>,
+  package <span class="op">=</span> <span class="st">"jeksterslabRdatarepo"</span>
+<span class="op">)</span></code></pre></div>
 </div>
 <div id="data-table" class="section level2">
 <h2 class="hasAnchor">
@@ -213,8 +214,9 @@
 <div id="saturated-model" class="section level3">
 <h3 class="hasAnchor">
 <a href="#saturated-model" class="anchor"></a>Saturated Model</h3>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="co"># model specification</span>
-<span class="no">model_cov</span> <span class="kw">&lt;-</span> <span class="st">"
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># model specification</span>
+<span class="va">model_cov</span> <span class="op">&lt;-</span> <span class="st">"
   # covariances
 
   # col 1
@@ -252,14 +254,14 @@
 
 "</span>
 <span class="co"># model fitting</span>
-<span class="no">fit_cov</span> <span class="kw">&lt;-</span> <span class="fu">sem</span>(
-  <span class="no">model_cov</span>,
-  <span class="kw">sample.cov</span> <span class="kw">=</span> <span class="no">alienation</span>,
-  <span class="kw">sample.nobs</span> <span class="kw">=</span> <span class="fl">932</span>
-)
+<span class="va">fit_cov</span> <span class="op">&lt;-</span> <span class="fu">sem</span><span class="op">(</span>
+  <span class="va">model_cov</span>,
+  sample.cov <span class="op">=</span> <span class="va">alienation</span>,
+  sample.nobs <span class="op">=</span> <span class="fl">932</span>
+<span class="op">)</span>
 <span class="co"># results</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">fit_cov</span>, <span class="kw">fit.measures</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">standardized</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
-<span class="co">#&gt; lavaan 0.6-6 ended normally after 146 iterations</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_cov</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span>, standardized <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="co">#&gt; lavaan 0.6-7 ended normally after 146 iterations</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;   Estimator                                         ML</span>
 <span class="co">#&gt;   Optimization method                           NLMINB</span>
@@ -340,14 +342,15 @@
 <span class="co">#&gt;     powerless71       9.975    0.462   21.587    0.000    9.975    1.000</span>
 <span class="co">#&gt;     education         9.600    0.445   21.587    0.000    9.600    1.000</span>
 <span class="co">#&gt;     sei             449.805   20.837   21.587    0.000  449.805    1.000</span>
-<span class="fu">semPaths</span>(<span class="no">fit_cov</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"path"</span>, <span class="kw">whatLabels</span> <span class="kw">=</span> <span class="st">"est"</span>, <span class="kw">style</span> <span class="kw">=</span> <span class="st">"ram"</span>, <span class="kw">layout</span> <span class="kw">=</span> <span class="st">"circle"</span>)</pre></body></html></div>
+<span class="fu">semPaths</span><span class="op">(</span><span class="va">fit_cov</span>, what <span class="op">=</span> <span class="st">"path"</span>, whatLabels <span class="op">=</span> <span class="st">"est"</span>, style <span class="op">=</span> <span class="st">"ram"</span>, layout <span class="op">=</span> <span class="st">"circle"</span><span class="op">)</span></code></pre></div>
 <p><img src="notes_alienation_files/figure-html/cov-1.png" width="700"></p>
 </div>
 <div id="linear-regression-model" class="section level3">
 <h3 class="hasAnchor">
 <a href="#linear-regression-model" class="anchor"></a>Linear Regression Model</h3>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="co"># model specification</span>
-<span class="no">model_regression</span> <span class="kw">&lt;-</span> <span class="st">"
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># model specification</span>
+<span class="va">model_regression</span> <span class="op">&lt;-</span> <span class="st">"
   # regression
   powerless71 ~ powerless67 + education
 
@@ -368,14 +371,14 @@
   powerless71 ~~ powerless71
 "</span>
 <span class="co"># model fitting</span>
-<span class="no">fit_regression</span> <span class="kw">&lt;-</span> <span class="fu">sem</span>(
-  <span class="no">model_regression</span>,
-  <span class="kw">sample.cov</span> <span class="kw">=</span> <span class="no">alienation</span>,
-  <span class="kw">sample.nobs</span> <span class="kw">=</span> <span class="fl">932</span>
-)
+<span class="va">fit_regression</span> <span class="op">&lt;-</span> <span class="fu">sem</span><span class="op">(</span>
+  <span class="va">model_regression</span>,
+  sample.cov <span class="op">=</span> <span class="va">alienation</span>,
+  sample.nobs <span class="op">=</span> <span class="fl">932</span>
+<span class="op">)</span>
 <span class="co"># results</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">fit_regression</span>, <span class="kw">fit.measures</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">standardized</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
-<span class="co">#&gt; lavaan 0.6-6 ended normally after 21 iterations</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_regression</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span>, standardized <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="co">#&gt; lavaan 0.6-7 ended normally after 21 iterations</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;   Estimator                                         ML</span>
 <span class="co">#&gt;   Optimization method                           NLMINB</span>
@@ -441,14 +444,15 @@
 <span class="co">#&gt;     powerless67       9.354    0.433   21.587    0.000    9.354    1.000</span>
 <span class="co">#&gt;     education         9.600    0.445   21.587    0.000    9.600    1.000</span>
 <span class="co">#&gt;    .powerless71       6.983    0.323   21.587    0.000    6.983    0.700</span>
-<span class="fu">semPaths</span>(<span class="no">fit_regression</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"path"</span>, <span class="kw">whatLabels</span> <span class="kw">=</span> <span class="st">"est"</span>, <span class="kw">style</span> <span class="kw">=</span> <span class="st">"ram"</span>)</pre></body></html></div>
+<span class="fu">semPaths</span><span class="op">(</span><span class="va">fit_regression</span>, what <span class="op">=</span> <span class="st">"path"</span>, whatLabels <span class="op">=</span> <span class="st">"est"</span>, style <span class="op">=</span> <span class="st">"ram"</span><span class="op">)</span></code></pre></div>
 <p><img src="notes_alienation_files/figure-html/regression-1.png" width="700"></p>
 </div>
 <div id="two-equation-path-model" class="section level3">
 <h3 class="hasAnchor">
 <a href="#two-equation-path-model" class="anchor"></a>Two Equation Path Model</h3>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="co"># model specification</span>
-<span class="no">model_path</span> <span class="kw">&lt;-</span> <span class="st">"
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># model specification</span>
+<span class="va">model_path</span> <span class="op">&lt;-</span> <span class="st">"
   # regression
   anomia71 ~ anomia67 + powerless67
   powerless71 ~ anomia67 + powerless67
@@ -471,14 +475,14 @@
   powerless71 ~~ powerless71
 "</span>
 <span class="co"># model fitting</span>
-<span class="no">fit_path</span> <span class="kw">&lt;-</span> <span class="fu">sem</span>(
-  <span class="no">model_path</span>,
-  <span class="kw">sample.cov</span> <span class="kw">=</span> <span class="no">alienation</span>,
-  <span class="kw">sample.nobs</span> <span class="kw">=</span> <span class="fl">932</span>
-)
+<span class="va">fit_path</span> <span class="op">&lt;-</span> <span class="fu">sem</span><span class="op">(</span>
+  <span class="va">model_path</span>,
+  sample.cov <span class="op">=</span> <span class="va">alienation</span>,
+  sample.nobs <span class="op">=</span> <span class="fl">932</span>
+<span class="op">)</span>
 <span class="co"># results</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">fit_path</span>, <span class="kw">fit.measures</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">standardized</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
-<span class="co">#&gt; lavaan 0.6-6 ended normally after 36 iterations</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_path</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span>, standardized <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="co">#&gt; lavaan 0.6-7 ended normally after 36 iterations</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;   Estimator                                         ML</span>
 <span class="co">#&gt;   Optimization method                           NLMINB</span>
@@ -550,7 +554,7 @@
 <span class="co">#&gt;     powerless67       9.354    0.433   21.587    0.000    9.354    1.000</span>
 <span class="co">#&gt;    .anomia71          8.370    0.388   21.587    0.000    8.370    0.669</span>
 <span class="co">#&gt;    .powerless71       7.113    0.329   21.587    0.000    7.113    0.713</span>
-<span class="fu">semPaths</span>(<span class="kw">object</span> <span class="kw">=</span> <span class="no">fit_path</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"path"</span>, <span class="kw">whatLabels</span> <span class="kw">=</span> <span class="st">"est"</span>, <span class="kw">style</span> <span class="kw">=</span> <span class="st">"ram"</span>)</pre></body></html></div>
+<span class="fu">semPaths</span><span class="op">(</span>object <span class="op">=</span> <span class="va">fit_path</span>, what <span class="op">=</span> <span class="st">"path"</span>, whatLabels <span class="op">=</span> <span class="st">"est"</span>, style <span class="op">=</span> <span class="st">"ram"</span><span class="op">)</span></code></pre></div>
 <p><img src="notes_alienation_files/figure-html/path-1.png" width="700"></p>
 </div>
 <div id="factor-model" class="section level3">
@@ -559,8 +563,9 @@
 <div id="one-factor-model-with-two-indicators" class="section level4">
 <h4 class="hasAnchor">
 <a href="#one-factor-model-with-two-indicators" class="anchor"></a>One-Factor Model with Two Indicators</h4>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="co"># model specification</span>
-<span class="no">model_cfa_1</span> <span class="kw">&lt;-</span> <span class="st">"
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># model specification</span>
+<span class="va">model_cfa_1</span> <span class="op">&lt;-</span> <span class="st">"
   # measurement model
   alienation =~ 1 * anomia67 + powerless67
 
@@ -576,11 +581,11 @@
   alienation ~~ alienation
 "</span>
 <span class="co"># model fitting</span>
-<span class="no">fit_cfa_1</span> <span class="kw">&lt;-</span> <span class="fu">sem</span>(
-  <span class="no">model_cfa_1</span>,
-  <span class="kw">sample.cov</span> <span class="kw">=</span> <span class="no">alienation</span>,
-  <span class="kw">sample.nobs</span> <span class="kw">=</span> <span class="fl">932</span>
-)
+<span class="va">fit_cfa_1</span> <span class="op">&lt;-</span> <span class="fu">sem</span><span class="op">(</span>
+  <span class="va">model_cfa_1</span>,
+  sample.cov <span class="op">=</span> <span class="va">alienation</span>,
+  sample.nobs <span class="op">=</span> <span class="fl">932</span>
+<span class="op">)</span>
 <span class="co">#&gt; Warning in lav_model_vcov(lavmodel = lavmodel, lavsamplestats = lavsamplestats, : lavaan WARNING:</span>
 <span class="co">#&gt;     Could not compute standard errors! The information matrix could</span>
 <span class="co">#&gt;     not be inverted. This may be a symptom that the model is not</span>
@@ -588,8 +593,8 @@
 <span class="co">#&gt; Warning in lav_object_post_check(object): lavaan WARNING: some estimated ov</span>
 <span class="co">#&gt; variances are negative</span>
 <span class="co"># results</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">fit_cfa_1</span>, <span class="kw">fit.measures</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">standardized</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
-<span class="co">#&gt; lavaan 0.6-6 ended normally after 23 iterations</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_cfa_1</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span>, standardized <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="co">#&gt; lavaan 0.6-7 ended normally after 23 iterations</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;   Estimator                                         ML</span>
 <span class="co">#&gt;   Optimization method                           NLMINB</span>
@@ -645,14 +650,15 @@
 <span class="co">#&gt;    .anomia67          8.193       NA                      8.193    0.693</span>
 <span class="co">#&gt;    .powerless67      -3.917       NA                     -3.917   -0.419</span>
 <span class="co">#&gt;     alienation        3.629       NA                      1.000    1.000</span>
-<span class="fu">semPaths</span>(<span class="no">fit_cfa_1</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"path"</span>, <span class="kw">whatLabels</span> <span class="kw">=</span> <span class="st">"est"</span>, <span class="kw">style</span> <span class="kw">=</span> <span class="st">"ram"</span>)</pre></body></html></div>
+<span class="fu">semPaths</span><span class="op">(</span><span class="va">fit_cfa_1</span>, what <span class="op">=</span> <span class="st">"path"</span>, whatLabels <span class="op">=</span> <span class="st">"est"</span>, style <span class="op">=</span> <span class="st">"ram"</span><span class="op">)</span></code></pre></div>
 <p><img src="notes_alienation_files/figure-html/cfa_1-1.png" width="700"></p>
 </div>
 <div id="one-factor-model-with-four-indicators" class="section level4">
 <h4 class="hasAnchor">
 <a href="#one-factor-model-with-four-indicators" class="anchor"></a>One-Factor Model with Four Indicators</h4>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="co"># model specification</span>
-<span class="no">model_cfa_2</span> <span class="kw">&lt;-</span> <span class="st">"
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># model specification</span>
+<span class="va">model_cfa_2</span> <span class="op">&lt;-</span> <span class="st">"
   # measurement model
   alienation =~ 1 * anomia67 + powerless67 + anomia71 + powerless71
 
@@ -670,14 +676,14 @@
   alienation ~~ alienation
 "</span>
 <span class="co"># model fitting</span>
-<span class="no">fit_cfa_2</span> <span class="kw">&lt;-</span> <span class="fu">sem</span>(
-  <span class="no">model_cfa_2</span>,
-  <span class="kw">sample.cov</span> <span class="kw">=</span> <span class="no">alienation</span>,
-  <span class="kw">sample.nobs</span> <span class="kw">=</span> <span class="fl">932</span>
-)
+<span class="va">fit_cfa_2</span> <span class="op">&lt;-</span> <span class="fu">sem</span><span class="op">(</span>
+  <span class="va">model_cfa_2</span>,
+  sample.cov <span class="op">=</span> <span class="va">alienation</span>,
+  sample.nobs <span class="op">=</span> <span class="fl">932</span>
+<span class="op">)</span>
 <span class="co"># results</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">fit_cfa_2</span>, <span class="kw">fit.measures</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">standardized</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
-<span class="co">#&gt; lavaan 0.6-6 ended normally after 30 iterations</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_cfa_2</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span>, standardized <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="co">#&gt; lavaan 0.6-7 ended normally after 30 iterations</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;   Estimator                                         ML</span>
 <span class="co">#&gt;   Optimization method                           NLMINB</span>
@@ -743,14 +749,15 @@
 <span class="co">#&gt;    .anomia71          5.006    0.339   14.774    0.000    5.006    0.400</span>
 <span class="co">#&gt;    .powerless71       4.552    0.281   16.199    0.000    4.552    0.456</span>
 <span class="co">#&gt;     alienation        6.437    0.535   12.032    0.000    1.000    1.000</span>
-<span class="fu">semPaths</span>(<span class="no">fit_cfa_2</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"path"</span>, <span class="kw">whatLabels</span> <span class="kw">=</span> <span class="st">"est"</span>, <span class="kw">style</span> <span class="kw">=</span> <span class="st">"ram"</span>)</pre></body></html></div>
+<span class="fu">semPaths</span><span class="op">(</span><span class="va">fit_cfa_2</span>, what <span class="op">=</span> <span class="st">"path"</span>, whatLabels <span class="op">=</span> <span class="st">"est"</span>, style <span class="op">=</span> <span class="st">"ram"</span><span class="op">)</span></code></pre></div>
 <p><img src="notes_alienation_files/figure-html/cfa_2-1.png" width="700"></p>
 </div>
 <div id="two-factor-model---parameterization-1" class="section level4">
 <h4 class="hasAnchor">
 <a href="#two-factor-model---parameterization-1" class="anchor"></a>Two-Factor Model - Parameterization 1</h4>
-<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="co"># model specification</span>
-<span class="no">model_cfa_3</span> <span class="kw">&lt;-</span> <span class="st">"
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># model specification</span>
+<span class="va">model_cfa_3</span> <span class="op">&lt;-</span> <span class="st">"
   # measurement model
   alienation67 =~ 1 * anomia67 + powerless67
   alienation71 =~ 1 * anomia71 + powerless71
@@ -775,14 +782,14 @@
   powerless71 ~~ powerless71
 "</span>
 <span class="co"># model fitting</span>
-<span class="no">fit_cfa_3</span> <span class="kw">&lt;-</span> <span class="fu">sem</span>(
-  <span class="no">model_cfa_3</span>,
-  <span class="kw">sample.cov</span> <span class="kw">=</span> <span class="no">alienation</span>,
-  <span class="kw">sample.nobs</span> <span class="kw">=</span> <span class="fl">932</span>
-)
+<span class="va">fit_cfa_3</span> <span class="op">&lt;-</span> <span class="fu">sem</span><span class="op">(</span>
+  <span class="va">model_cfa_3</span>,
+  sample.cov <span class="op">=</span> <span class="va">alienation</span>,
+  sample.nobs <span class="op">=</span> <span class="fl">932</span>
+<span class="op">)</span>
 <span class="co"># results</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">fit_cfa_3</span>, <span class="kw">fit.measures</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">standardized</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
-<span class="co">#&gt; lavaan 0.6-6 ended normally after 48 iterations</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_cfa_3</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span>, standardized <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="co">#&gt; lavaan 0.6-7 ended normally after 48 iterations</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;   Estimator                                         ML</span>
 <span class="co">#&gt;   Optimization method                           NLMINB</span>
@@ -855,14 +862,15 @@
 <span class="co">#&gt;    .powerless67       3.475    0.287   12.119    0.000    3.475    0.372</span>
 <span class="co">#&gt;    .anomia71          3.335    0.398    8.390    0.000    3.335    0.266</span>
 <span class="co">#&gt;    .powerless71       3.871    0.302   12.803    0.000    3.871    0.388</span>
-<span class="fu">semPaths</span>(<span class="no">fit_cfa_3</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"path"</span>, <span class="kw">whatLabels</span> <span class="kw">=</span> <span class="st">"est"</span>, <span class="kw">style</span> <span class="kw">=</span> <span class="st">"ram"</span>)</pre></body></html></div>
+<span class="fu">semPaths</span><span class="op">(</span><span class="va">fit_cfa_3</span>, what <span class="op">=</span> <span class="st">"path"</span>, whatLabels <span class="op">=</span> <span class="st">"est"</span>, style <span class="op">=</span> <span class="st">"ram"</span><span class="op">)</span></code></pre></div>
 <p><img src="notes_alienation_files/figure-html/cfa_3-1.png" width="700"></p>
 </div>
 <div id="two-factor-model---parameterization-2" class="section level4">
 <h4 class="hasAnchor">
 <a href="#two-factor-model---parameterization-2" class="anchor"></a>Two-Factor Model - Parameterization 2</h4>
-<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="co"># model specification</span>
-<span class="no">model_cfa_4</span> <span class="kw">&lt;-</span> <span class="st">"
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># model specification</span>
+<span class="va">model_cfa_4</span> <span class="op">&lt;-</span> <span class="st">"
   # measurement model
   alienation67 =~ NA * anomia67 + powerless67
   alienation71 =~ NA * anomia71 + powerless71
@@ -887,14 +895,14 @@
   powerless71 ~~ powerless71
 "</span>
 <span class="co"># model fitting</span>
-<span class="no">fit_cfa_4</span> <span class="kw">&lt;-</span> <span class="fu">sem</span>(
-  <span class="no">model_cfa_4</span>,
-  <span class="kw">sample.cov</span> <span class="kw">=</span> <span class="no">alienation</span>,
-  <span class="kw">sample.nobs</span> <span class="kw">=</span> <span class="fl">932</span>
-)
+<span class="va">fit_cfa_4</span> <span class="op">&lt;-</span> <span class="fu">sem</span><span class="op">(</span>
+  <span class="va">model_cfa_4</span>,
+  sample.cov <span class="op">=</span> <span class="va">alienation</span>,
+  sample.nobs <span class="op">=</span> <span class="fl">932</span>
+<span class="op">)</span>
 <span class="co"># results</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">fit_cfa_4</span>, <span class="kw">fit.measures</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">standardized</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
-<span class="co">#&gt; lavaan 0.6-6 ended normally after 19 iterations</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_cfa_4</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span>, standardized <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="co">#&gt; lavaan 0.6-7 ended normally after 19 iterations</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;   Estimator                                         ML</span>
 <span class="co">#&gt;   Optimization method                           NLMINB</span>
@@ -967,14 +975,15 @@
 <span class="co">#&gt;    .powerless67       3.475    0.287   12.119    0.000    3.475    0.372</span>
 <span class="co">#&gt;    .anomia71          3.335    0.398    8.390    0.000    3.335    0.266</span>
 <span class="co">#&gt;    .powerless71       3.871    0.302   12.803    0.000    3.871    0.388</span>
-<span class="fu">semPaths</span>(<span class="no">fit_cfa_4</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"path"</span>, <span class="kw">whatLabels</span> <span class="kw">=</span> <span class="st">"est"</span>, <span class="kw">style</span> <span class="kw">=</span> <span class="st">"ram"</span>)</pre></body></html></div>
+<span class="fu">semPaths</span><span class="op">(</span><span class="va">fit_cfa_4</span>, what <span class="op">=</span> <span class="st">"path"</span>, whatLabels <span class="op">=</span> <span class="st">"est"</span>, style <span class="op">=</span> <span class="st">"ram"</span><span class="op">)</span></code></pre></div>
 <p><img src="notes_alienation_files/figure-html/cfa_4-1.png" width="700"></p>
 </div>
 <div id="two-factor-model---correlated-measurement-errors" class="section level4">
 <h4 class="hasAnchor">
 <a href="#two-factor-model---correlated-measurement-errors" class="anchor"></a>Two-Factor Model - Correlated Measurement Errors</h4>
-<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="co"># model specification</span>
-<span class="no">model_cfa_5</span> <span class="kw">&lt;-</span> <span class="st">"
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># model specification</span>
+<span class="va">model_cfa_5</span> <span class="op">&lt;-</span> <span class="st">"
   # measurement model
   alienation67 =~ 1 * anomia67 + powerless67
   alienation71 =~ 1 * anomia71 + powerless71
@@ -1003,11 +1012,11 @@
   powerless71 ~~ powerless71
 "</span>
 <span class="co"># model fitting</span>
-<span class="no">fit_cfa_5</span> <span class="kw">&lt;-</span> <span class="fu">sem</span>(
-  <span class="no">model_cfa_5</span>,
-  <span class="kw">sample.cov</span> <span class="kw">=</span> <span class="no">alienation</span>,
-  <span class="kw">sample.nobs</span> <span class="kw">=</span> <span class="fl">932</span>
-)
+<span class="va">fit_cfa_5</span> <span class="op">&lt;-</span> <span class="fu">sem</span><span class="op">(</span>
+  <span class="va">model_cfa_5</span>,
+  sample.cov <span class="op">=</span> <span class="va">alienation</span>,
+  sample.nobs <span class="op">=</span> <span class="fl">932</span>
+<span class="op">)</span>
 <span class="co">#&gt; Warning in lav_model_vcov(lavmodel = lavmodel, lavsamplestats = lavsamplestats, : lavaan WARNING:</span>
 <span class="co">#&gt;     Could not compute standard errors! The information matrix could</span>
 <span class="co">#&gt;     not be inverted. This may be a symptom that the model is not</span>
@@ -1016,8 +1025,8 @@
 <span class="co">#&gt;                 variables (theta) is not positive definite;</span>
 <span class="co">#&gt;                 use lavInspect(fit, "theta") to investigate.</span>
 <span class="co"># results</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">fit_cfa_5</span>, <span class="kw">fit.measures</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">standardized</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
-<span class="co">#&gt; lavaan 0.6-6 ended normally after 46 iterations</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_cfa_5</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span>, standardized <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="co">#&gt; lavaan 0.6-7 ended normally after 46 iterations</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;   Estimator                                         ML</span>
 <span class="co">#&gt;   Optimization method                           NLMINB</span>
@@ -1088,15 +1097,16 @@
 <span class="co">#&gt;    .powerless67       0.167       NA                      0.167    0.018</span>
 <span class="co">#&gt;    .anomia71          6.499       NA                      6.499    0.519</span>
 <span class="co">#&gt;    .powerless71       0.663       NA                      0.663    0.066</span>
-<span class="fu">semPaths</span>(<span class="no">fit_cfa_5</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"path"</span>, <span class="kw">whatLabels</span> <span class="kw">=</span> <span class="st">"est"</span>, <span class="kw">style</span> <span class="kw">=</span> <span class="st">"ram"</span>)</pre></body></html></div>
+<span class="fu">semPaths</span><span class="op">(</span><span class="va">fit_cfa_5</span>, what <span class="op">=</span> <span class="st">"path"</span>, whatLabels <span class="op">=</span> <span class="st">"est"</span>, style <span class="op">=</span> <span class="st">"ram"</span><span class="op">)</span></code></pre></div>
 <p><img src="notes_alienation_files/figure-html/cfa_5-1.png" width="700"></p>
 </div>
 </div>
 <div id="complete-latent-variable-model" class="section level3">
 <h3 class="hasAnchor">
 <a href="#complete-latent-variable-model" class="anchor"></a>Complete Latent Variable Model</h3>
-<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="co"># model specification</span>
-<span class="no">model_cfa_6</span> <span class="kw">&lt;-</span> <span class="st">"
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># model specification</span>
+<span class="va">model_cfa_6</span> <span class="op">&lt;-</span> <span class="st">"
   # measurement model
   alienation67 =~ 1 * anomia67 + powerless67
   alienation71 =~ 1 * anomia71 + powerless71
@@ -1130,14 +1140,14 @@
   powerless71 ~~ powerless71
 "</span>
 <span class="co"># model fitting</span>
-<span class="no">fit_cfa_6</span> <span class="kw">&lt;-</span> <span class="fu">sem</span>(
-  <span class="no">model_cfa_6</span>,
-  <span class="kw">sample.cov</span> <span class="kw">=</span> <span class="no">alienation</span>,
-  <span class="kw">sample.nobs</span> <span class="kw">=</span> <span class="fl">932</span>
-)
+<span class="va">fit_cfa_6</span> <span class="op">&lt;-</span> <span class="fu">sem</span><span class="op">(</span>
+  <span class="va">model_cfa_6</span>,
+  sample.cov <span class="op">=</span> <span class="va">alienation</span>,
+  sample.nobs <span class="op">=</span> <span class="fl">932</span>
+<span class="op">)</span>
 <span class="co"># results</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">fit_cfa_6</span>, <span class="kw">fit.measures</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">standardized</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
-<span class="co">#&gt; lavaan 0.6-6 ended normally after 84 iterations</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_cfa_6</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span>, standardized <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="co">#&gt; lavaan 0.6-7 ended normally after 84 iterations</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;   Estimator                                         ML</span>
 <span class="co">#&gt;   Optimization method                           NLMINB</span>
@@ -1226,14 +1236,15 @@
 <span class="co">#&gt;    .powerless71       3.070    0.434    7.070    0.000    3.070    0.308</span>
 <span class="co">#&gt;    .education         2.801    0.507    5.525    0.000    2.801    0.292</span>
 <span class="co">#&gt;    .sei             264.597   18.126   14.597    0.000  264.597    0.588</span>
-<span class="fu">semPaths</span>(<span class="no">fit_cfa_6</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"path"</span>, <span class="kw">whatLabels</span> <span class="kw">=</span> <span class="st">"est"</span>, <span class="kw">style</span> <span class="kw">=</span> <span class="st">"ram"</span>)</pre></body></html></div>
+<span class="fu">semPaths</span><span class="op">(</span><span class="va">fit_cfa_6</span>, what <span class="op">=</span> <span class="st">"path"</span>, whatLabels <span class="op">=</span> <span class="st">"est"</span>, style <span class="op">=</span> <span class="st">"ram"</span><span class="op">)</span></code></pre></div>
 <p><img src="notes_alienation_files/figure-html/cfa_6-1.png" width="700"></p>
 </div>
 <div id="second-order-factor-model" class="section level3">
 <h3 class="hasAnchor">
 <a href="#second-order-factor-model" class="anchor"></a>Second-Order Factor Model</h3>
-<div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="co"># model specification</span>
-<span class="no">model_cfa_7</span> <span class="kw">&lt;-</span> <span class="st">"
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># model specification</span>
+<span class="va">model_cfa_7</span> <span class="op">&lt;-</span> <span class="st">"
   # measurement model
   alienation67 =~ 1 * anomia67 + powerless67
   alienation71 =~ 1 * anomia71 + powerless71
@@ -1257,18 +1268,18 @@
   alienation71 ~~ alienation71
 "</span>
 <span class="co"># model fitting</span>
-<span class="no">fit_cfa_7</span> <span class="kw">&lt;-</span> <span class="fu">sem</span>(
-  <span class="no">model_cfa_7</span>,
-  <span class="kw">sample.cov</span> <span class="kw">=</span> <span class="no">alienation</span>,
-  <span class="kw">sample.nobs</span> <span class="kw">=</span> <span class="fl">932</span>
-)
+<span class="va">fit_cfa_7</span> <span class="op">&lt;-</span> <span class="fu">sem</span><span class="op">(</span>
+  <span class="va">model_cfa_7</span>,
+  sample.cov <span class="op">=</span> <span class="va">alienation</span>,
+  sample.nobs <span class="op">=</span> <span class="fl">932</span>
+<span class="op">)</span>
 <span class="co">#&gt; Warning in lav_model_vcov(lavmodel = lavmodel, lavsamplestats = lavsamplestats, : lavaan WARNING:</span>
 <span class="co">#&gt;     Could not compute standard errors! The information matrix could</span>
 <span class="co">#&gt;     not be inverted. This may be a symptom that the model is not</span>
 <span class="co">#&gt;     identified.</span>
 <span class="co"># results</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">fit_cfa_7</span>, <span class="kw">fit.measures</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">standardized</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
-<span class="co">#&gt; lavaan 0.6-6 ended normally after 48 iterations</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_cfa_7</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span>, standardized <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="co">#&gt; lavaan 0.6-7 ended normally after 48 iterations</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;   Estimator                                         ML</span>
 <span class="co">#&gt;   Optimization method                           NLMINB</span>
@@ -1341,7 +1352,7 @@
 <span class="co">#&gt;    .powerless67       1.963       NA                      1.963    0.210</span>
 <span class="co">#&gt;    .anomia71          5.036       NA                      5.036    0.402</span>
 <span class="co">#&gt;    .powerless71       2.484       NA                      2.484    0.249</span>
-<span class="fu">semPaths</span>(<span class="no">fit_cfa_7</span>, <span class="kw">what</span> <span class="kw">=</span> <span class="st">"path"</span>, <span class="kw">whatLabels</span> <span class="kw">=</span> <span class="st">"est"</span>, <span class="kw">style</span> <span class="kw">=</span> <span class="st">"ram"</span>)</pre></body></html></div>
+<span class="fu">semPaths</span><span class="op">(</span><span class="va">fit_cfa_7</span>, what <span class="op">=</span> <span class="st">"path"</span>, whatLabels <span class="op">=</span> <span class="st">"est"</span>, style <span class="op">=</span> <span class="st">"ram"</span><span class="op">)</span></code></pre></div>
 <p><img src="notes_alienation_files/figure-html/cfa_7-1.png" width="700"></p>
 </div>
 </div>
@@ -1362,7 +1373,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

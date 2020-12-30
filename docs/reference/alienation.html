@@ -93,7 +93,7 @@ of the respondent's socio-economic status." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -149,7 +149,7 @@ of the respondent's socio-economic status." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/jeksterslabds/jeksterslabRdatarepo/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -188,13 +188,13 @@ and were boh conceived as indicators
 of the respondent's socio-economic status.</p>
     </div>
 
-    <pre class="usage"><span class='no'>alienation</span></pre>
+    <pre class="usage"><span class='va'>alienation</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
     <p>A 6 by 6 variance-covariance matrix
-summarized from 932 respondent.</p><dl'>
+summarized from 932 respondent.</p><dl>
 <dt>anomia67</dt><dd><p>anomia measured in 1967.</p></dd>
 <dt>powerlessness67</dt><dd><p>powerlessness measured in 1967</p></dd>
 <dt>anomia71</dt><dd><p>anomia measured in 1971.</p></dd>
@@ -216,11 +216,13 @@ Assessing Reliability and Stability in Panel Models.
 doi:<a href='https://doi.org/10.2307/270754'>10.10.2307/270754</a>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>alienation</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"jeksterslabRdatarepo"</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>alienation</span>)</div><div class='output co'>#&gt;  num [1:6, 1:6] 11.83 6.95 6.82 4.78 -3.84 ...
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>alienation</span>, package <span class='op'>=</span> <span class='st'>"jeksterslabRdatarepo"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>alienation</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  num [1:6, 1:6] 11.83 6.95 6.82 4.78 -3.84 ...
 #&gt;  - attr(*, "dimnames")=List of 2
 #&gt;   ..$ : chr [1:6] "anomia67" "powerless67" "anomia71" "powerless71" ...
-#&gt;   ..$ : chr [1:6] "anomia67" "powerless67" "anomia71" "powerless71" ...</div><div class='input'><span class='no'>alienation</span></div><div class='output co'>#&gt;             anomia67 powerless67 anomia71 powerless71 education     sei
+#&gt;   ..$ : chr [1:6] "anomia67" "powerless67" "anomia71" "powerless71" ...</div><div class='input'><span class='va'>alienation</span>
+</div><div class='output co'>#&gt;             anomia67 powerless67 anomia71 powerless71 education     sei
 #&gt; anomia67      11.834       6.947    6.819       4.783    -3.839 -21.899
 #&gt; powerless67    6.947       9.364    5.091       5.028    -3.889 -18.831
 #&gt; anomia71       6.819       5.091   12.532       7.495    -3.841 -21.748
@@ -242,7 +244,7 @@ doi:<a href='https://doi.org/10.2307/270754'>10.10.2307/270754</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
